@@ -1,95 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style>
-        :root {
-            --robin-grey: #8E9495;
-            --robin-orange: #FF6B35;
-            --robin-belly: #F0F0F0;
-            --bg-color: #F4F7F6;
-        }
-
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--bg-color);
-            overflow: hidden;
-        }
-
-        .bird-wrapper {
-            cursor: pointer;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        /* 整体呼吸与轻微浮动 */
-        .robin {
-            animation: idleFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes idleFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
-        }
-
-        /* 翅膀：更真实的扇动动画 */
-        .wing {
-            transform-origin: 35px 45px;
-            /* 模拟鸟类快速扇动后的小停顿 */
-            animation: flap翅膀 0.2s ease-in-out infinite alternate;
-            animation-play-state: paused; /* 默认静止 */
-        }
-
-        .bird-wrapper:hover .wing, .bird-wrapper.active .wing {
-            animation-play-state: running;
-        }
-
-        @keyframes flap翅膀 {
-            0% { transform: rotate(0deg) scaleY(1); }
-            100% { transform: rotate(-40deg) scaleY(0.6); }
-        }
-
-        /* 欧亚鸲身体部件 */
-        .body-main { fill: var(--robin-grey); transition: fill 0.5s; }
-        .chest-orange { fill: var(--robin-orange); opacity: 0.8; transition: opacity 0.5s; }
-        .eye { fill: #333; }
-        
-        /* 初始隐藏颜色，点击后激活 */
-        .bird-wrapper:not(.active) .body-main { fill: #D1D1D1; }
-        .bird-wrapper:not(.active) .chest-orange { opacity: 0; }
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Design Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-<div class="bird-wrapper" id="robinWrapper" onclick="this.classList.toggle('active')">
-    <svg width="240" height="240" viewBox="0 0 100 100">
-        <ellipse cx="50" cy="85" rx="15" ry="3" fill="#000" opacity="0.05" />
+    <main class="cover-page">
+        <section class="hero-container">
+            <div class="breathing-dot"></div>
 
-        <g class="robin">
-            <path class="wing" d="M35,45 Q15,30 25,15 Q40,25 38,42" fill="#7A8081" />
+            <h1>Hi, I'm <span class="highlight">Design Lover</span></h1>
             
-            <path class="body-main" d="M30,50 C30,75 75,75 80,50 C85,25 50,20 35,30 C25,40 30,50 30,50" />
+            <p class="subtitle">UX · Sound · Playful Design</p>
             
-            <path class="chest-orange" d="M45,30 C35,40 35,60 55,70 C70,65 75,45 65,28 C60,25 50,25 45,30" />
+            <p class="intro-text">
+                致力于通过共情与趣味连接人心。我将复杂的问题转化为轻快、直观的数字体验，让每一次点击都充满惊喜。
+            </p>
             
-            <circle class="eye" cx="62" cy="38" r="2.5" />
-            
-            <path d="M80,45 L88,43 L80,41 Z" fill="#444" />
-
-            <line x1="45" y1="72" x2="42" y2="80" stroke="#555" stroke-width="1.5" />
-            <line x1="60" y1="72" x2="63" y2="80" stroke="#555" stroke-width="1.5" />
-        </g>
-    </svg>
-    
-    <div style="text-align: center; color: #888; font-family: sans-serif; font-size: 12px; letter-spacing: 2px;">
-        CLICK TO WAKE UP THE ROBIN
-    </div>
-</div>
+            <a href="#work" class="cta-button">查看我的作品集</a>
+        </section>
+    </main>
 
 </body>
 </html>

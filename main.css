@@ -1,0 +1,137 @@
+/* --- 1. 变量定义 (设计系统) --- */
+:root {
+    /* 配色方案 */
+    --bg-mint: #eef7f2;
+    --container-white: #ffffff;
+    --accent-lemon: #fff4b0; 
+    --text-charcoal: #3d4240; 
+    --text-muted: #8e9495;
+    
+    /* 动效曲线 (贝塞尔曲线增加弹性感) */
+    --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- 2. 基础重置 --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-mint);
+    font-family: 'Quicksand', sans-serif; /* 确保在 HTML 中引入了该字体 */
+    color: var(--text-charcoal);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+}
+
+/* --- 3. 布局容器 --- */
+.cover-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hero-container {
+    background: var(--container-white);
+    width: 100%;
+    max-width: 800px;
+    padding: 60px 40px;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    text-align: center;
+    transition: transform 0.4s var(--ease-elastic), box-shadow 0.4s ease;
+    position: relative;
+}
+
+.hero-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+}
+
+/* --- 4. 排版层级 (类似 Lora 的共情感) --- */
+h1 {
+    font-family: 'Lora', serif; /* 确保在 HTML 中引入了该字体 */
+    font-size: clamp(2.5rem, 8vw, 3.5rem); /* 响应式字号 */
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 8px;
+    width: 100%; height: 12px;
+    background-color: var(--accent-lemon);
+    z-index: -1;
+    border-radius: 4px;
+    opacity: 0.6;
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-charcoal);
+    opacity: 0.8;
+    max-width: 540px;
+    margin: 0 auto 3rem auto;
+}
+
+/* --- 5. 交互组件 --- */
+.cta-button {
+    background-color: var(--accent-lemon);
+    border: none;
+    padding: 16px 44px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-charcoal);
+    cursor: pointer;
+    transition: transform 0.2s var(--ease-elastic), box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    box-shadow: 0 12px 24px rgba(255, 244, 176, 0.5);
+}
+
+.cta-button:active {
+    transform: scale(0.94);
+}
+
+/* --- 6. 微动画 --- */
+.breathing-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-lemon);
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2.5s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.5; }
+    50% { transform: translate(-50%, -12px); opacity: 1; }
+}
