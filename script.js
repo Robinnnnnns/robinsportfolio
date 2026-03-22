@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
             Object.assign(currentPet.style, {
                 position: 'fixed',
                 zIndex: '10000',      // 必须在所有内容之上
-                width: '42px',        // 比原本稍微大一点点
+                width: '50px',        // 比原本稍微大一点点
                 height: 'auto',
                 pointerEvents: 'none', // 核心：不拦截鼠标点击其他元素
                 animation: 'none',     // 停止原有的 Grid 呼吸动画

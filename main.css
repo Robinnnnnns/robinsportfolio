@@ -260,7 +260,7 @@ h1 {
     /* 注意：transform 会在动画 keyframes 中处理，这里不需要单独写，否则会被动画覆盖 */
     
     /* 5. 动画：使用更柔和的呼吸感 */
-    animation: gentle-breath 4s infinite ease-in-out;
+    animation: gentle-breath 2s infinite ease-in-out;
 }
 
 /* 呼吸动画：整合了水平居中与垂直位移 */
@@ -274,7 +274,6 @@ h1 {
 }
 
 .bouncing_robin:hover {
-    /* 1. 金色/柠檬黄的发光效果，颜色与爱心一致 */
     filter: drop-shadow(0 0 8px var(--accent-lemon)) brightness(1.1);
     
     /* 2. 悬停时稍微放大一点，增加交互感 */
