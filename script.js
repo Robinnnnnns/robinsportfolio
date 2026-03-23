@@ -1,64 +1,81 @@
-// 全局记录当前跟随鼠标的克隆体，方便后续操作
 let currentPet = null;
 
 window.addEventListener('DOMContentLoaded', () => {
-    // === 交互 1：克隆分身随鼠 (不改变 Grid) ===
-
-    // 获取所有背景插画
     const bgBirds = document.querySelectorAll('.illustration-bg img');
-    let petX = 0, petY = 0; // 存储平滑位置
-    let targetX = 0, targetY = 0; // 存储目标位置
+    let petX = 0, petY = 0; 
+    let targetX = 0, targetY = 0; 
 
+    // --- 1. 定义创建宠物的统一函数 (保持你的原始样式设置) ---
+    function initPet(imgSrc) {
+        if (currentPet) currentPet.remove();
+        
+        currentPet = document.createElement('img');
+        currentPet.src = imgSrc; 
+        currentPet.className = 'mouse-pet';
+        document.body.appendChild(currentPet);
+
+        Object.assign(currentPet.style, {
+            position: 'fixed',
+            zIndex: '10000',
+            width: '50px',
+            height: 'auto',
+            pointerEvents: 'none',
+            animation: 'none',
+            transition: 'opacity 0.3s ease'
+        });
+    }
+
+    // --- 2. 跨页面恢复：检查本地存储 ---
+    const savedPet = localStorage.getItem('activeMousePet');
+    if (savedPet) {
+        initPet(savedPet);
+    }
+
+    // --- 3. 点击 Grid 换鸟逻辑 ---
     bgBirds.forEach(bird => {
         bird.addEventListener('click', function(e) {
-            // 原位逻辑：点击的鸟变 blankbird
             const clickedImgSrc = this.src;
             this.src = './assets/blankbird.png';
             this.style.opacity = "1";
 
-            // 宠物逻辑：移除旧的，生成新的“克隆分身”
-            if (currentPet) {
-                currentPet.remove();
-            }
-            currentPet = document.createElement('img');
-            currentPet.src = clickedImgSrc; 
-            currentPet.className = 'mouse-pet';
-            document.body.appendChild(currentPet);
+            // 存入本地存储，实现全局应用
+            localStorage.setItem('activeMousePet', clickedImgSrc);
 
-            // 初始样式 (脱离文档流，最顶层)
-            Object.assign(currentPet.style, {
-                position: 'fixed',
-                zIndex: '10000',      // 必须在所有内容之上
-                width: '50px',        // 比原本稍微大一点点
-                height: 'auto',
-                pointerEvents: 'none', // 核心：不拦截鼠标点击其他元素
-                animation: 'none',     // 停止原有的 Grid 呼吸动画
-                transition: 'opacity 0.3s ease' // 配合消失效果
-            });
-            petX = e.clientX; petY = e.clientY; // 初始对准
+            initPet(clickedImgSrc);
+            
+            // 瞬间对准位置，防止从 0,0 飞过来
+            petX = e.clientX; petY = e.clientY; 
         });
     });
 
-    // 监听鼠标移动，实现克隆体平滑跟随
+    // --- 4. 监听鼠标移动 ---
     window.addEventListener('mousemove', (e) => {
         targetX = e.clientX;
         targetY = e.clientY;
     });
 
-    // 平滑动画循环 (让跟随动作有惯性)
+    // --- 5. 平滑动画循环 (保留你喜欢的丝滑感) ---
     function smoothFollow() {
         if (currentPet) {
-            // 平滑因子，数值越小越平滑
             const ease = 0.15;
             petX += (targetX - petX) * ease;
             petY += (targetY - petY) * ease;
             
-            currentPet.style.left = `${petX - 21}px`; // 减去宽度一半
-            currentPet.style.top = `${petY - 21}px`; // 减去高度一半
+            // 减去图片宽度的一半 (25px) 保持中心对齐
+            currentPet.style.left = `${petX - 25}px`; 
+            currentPet.style.top = `${petY - 25}px`; 
         }
         requestAnimationFrame(smoothFollow);
     }
-    smoothFollow(); // 启动平滑跟随循环
+    smoothFollow();
+});
+
+
+
+
+
+
+
 
 
     // === 交互 2：Bouncing Robin 点击冒爱心 ===
@@ -145,4 +162,3 @@ window.addEventListener('DOMContentLoaded', () => {
         // 增加平滑的透明度变化
         requestAnimationFrame(() => animateHeart(heart));
     }
-});

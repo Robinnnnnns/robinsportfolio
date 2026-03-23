@@ -1,0 +1,396 @@
+/* --- 1. 设计系统变量 --- */
+:root {
+    /* 色彩 */
+    --bg-mint: #eef7f2;
+    --container-white: #ffffff;
+    --accent-lemon: #ffd8b0; 
+    --text-main: #3d4240;      /* 暖深灰，阅读感极佳 */
+    --text-muted: #8e9495;
+    
+    /* 字体族分配 */
+    --font-heading: 'Lora', serif;       /* 感性/优雅 */
+    --font-body: 'Mulish', sans-serif;   /* 理性/易读 */
+    --font-ui: 'Quicksand', sans-serif;  /* 趣味/互动 */
+
+    --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- 2. 基础设置 --- */
+html {
+    scroll-behavior: smooth;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-mint);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;    
+}
+
+
+
+/* --- 3. 导航栏 (Quicksand) --- */
+.top-nav {
+    position: absolute;
+    pointer-events: auto;
+    top: 30px;
+    right: 40px;
+    z-index: 20;
+}
+
+.nav-link {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text-main);
+    margin-left: 30px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-muted);
+}
+
+/* --- 4. 布局容器 --- */
+.cover-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+   
+}
+
+.hero-container {
+    background: var(--container-white);
+    width: 100%;
+    max-width: 720px;
+    padding: 50px 30px;
+    border-radius: 50px; /* 超大圆角增加亲和力 */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.02);
+    text-align: center;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+    /* 建议：将背景色改为带透明度的白色，能隐约看到背后的插画 */
+    background: rgba(255, 255, 255, 0.9);
+    transition: transform 0.4s var(--ease-elastic);
+}
+
+.hero-container:hover {
+    transform: translateY(-5px);
+}
+
+/* --- 5. 排版逻辑 --- */
+
+/* Lora: 叙事性标题 */
+h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.02em;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 10px;
+    width: 100%; height: 15px;
+    background-color: var(--accent-lemon);
+    z-index: -1;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.highlight:hover::after {
+    opacity: 1;              /* 颜色变实 */
+    transform: scaleY(1.2);  /* 色块纵向稍微加粗 */
+    transform: scaleX(1.1);  /* 色块纵向稍微加粗 */
+
+}
+
+/* Quicksand: 活泼的副标题 */
+.subtitle {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+/* Mulish: 易读的正文 */
+.intro-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-main);
+    opacity: 0.9;
+    max-width: 520px;
+    margin: 0 auto 3.5rem auto;
+}
+
+/* --- 6. 交互组件 (Quicksand) --- */
+.cta-button {
+    font-family: var(--font-ui);
+    background-color: var(--accent-lemon);
+    border: none;
+    padding: 18px 48px;
+    border-radius: 100px; /* 彻底的胶囊形 */
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.3s var(--ease-elastic);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 8px 0px rgba(0,0,0,0.02); /* 扁平化深度 */
+    
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(255, 180, 120, 0.28);
+}
+
+.cta-button:active {
+    transform: translateY(1px) scale(0.96);
+}
+
+/* --- 7. 微动画 (呼吸感插画) --- */
+.bouncing_robin {
+    /* 1. 尺寸与背景设置 */
+    width: 50px; 
+    height: 50px;
+    background-image: url('./assets/robin1.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    z-index: 20;
+
+    /* 2. 视觉表现：增加透明度 */
+    opacity: 0.9; 
+    border-radius: 0;
+
+    /* 3. 交互控制：鼠标点击不高亮且穿透 */
+    pointer-events: auto;
+    user-select: none;
+
+    /* 4. 定位 */
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    /* 注意：transform 会在动画 keyframes 中处理，这里不需要单独写，否则会被动画覆盖 */
+    
+    /* 5. 动画：使用更柔和的呼吸感 */
+    animation: gentle-breath 2s infinite ease-in-out;
+}
+
+/* 呼吸动画：整合了水平居中与垂直位移 */
+@keyframes gentle-breath {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px) scale(1.05); /* 向上轻微浮动并放大 */
+    }
+}
+
+.bouncing_robin:hover {
+    filter: drop-shadow(0 0 8px var(--accent-lemon)) brightness(1.1);
+    
+    /* 2. 悬停时稍微放大一点，增加交互感 */
+    /* 注意：因为原动画有 translateX(-50%)，这里要保留它以免位移 */
+    transform: translateX(-50%) scale(1.1); 
+}
+
+/* 兼容动画状态下的悬停：
+   如果发现悬停时动画闪烁，可以将 transition 加在动画 keyframes 里，
+   或者简单地让悬停时动画暂停（可选） */
+.bouncing_robin:hover {
+    animation-play-state: paused; /* 鼠标移上去时小鸟停止呼吸，方便点击 */
+}
+
+/* --- 背景装饰层容器 --- */
+.illustration-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* 位于主体内容之下 */
+    pointer-events: auto;
+
+    /* 1. 网页四周留出边距 */
+    padding: 4vh 4vw; 
+    box-sizing: border-box;
+
+    /* 2. 锁定 4x8 网格布局 */
+    display: grid;
+    /* 强制分为 8 列，每列平分空间 */
+    grid-template-columns: repeat(8, 1fr); 
+    /* 强制分为 4 行，每行平分空间 */
+    grid-template-rows: repeat(4, 1fr); 
+
+    /* 3. 居中与交互 */
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* --- 插画图片样式 --- */
+.illustration-bg img {
+    /* 4. 大小响应网页容器尺寸 */
+    /* 使用 min() 确保图片在缩放时不会超出格子，且保持精致 */
+    width: min(8vw, 60px); 
+    height: auto;
+    opacity: 0.6; /* 透明度 0.6 */
+    z-index: 2; /* 位于主体内容之下 */
+
+    user-select: none;
+    /* 5. 错落的上下移动动画 (不缩放) */
+    animation: floating-updown 5s infinite ease-in-out;
+    cursor: pointer; /* 鼠标悬停变小手，提示可点击 */
+    transition: transform 0.5s ease, opacity 0.6s ease;}
+
+.illustration-bg img:active {
+    transform: scale(0.9); /* 点击时的小反馈 */
+}
+
+
+
+/* --- 6. 制造错落感的 5 组延迟 --- */
+.illustration-bg img:nth-child(5n+1) { animation-delay: 0s; }
+.illustration-bg img:nth-child(5n+2) { animation-delay: 1.2s; }
+.illustration-bg img:nth-child(5n+3) { animation-delay: 2.4s; }
+.illustration-bg img:nth-child(5n+4) { animation-delay: 0.6s; }
+.illustration-bg img:nth-child(5n+5) { animation-delay: 1.8s; }
+
+/* --- 7. 纯上下位移呼吸动画 --- */
+@keyframes floating-updown {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        /* 向上漂浮的幅度也随网页大小微调 */
+        transform: translateY(-0.5vh); 
+        opacity: 0.4;
+    }
+}
+
+
+/* --- 8. Resume Section 布局 --- */
+.resume-section {
+    background-color: var(--container-white);
+    min-height: 100vh;
+    padding: 120px 5vw;
+    position: relative;
+    z-index: 10; /* 盖住背景插画层，如果你希望背景只在首屏出现 */
+    border-radius: 60px 60px 0 0; /* 圆角过渡增加亲和力 */
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.02);
+}
+
+.resume-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 侧边栏与主内容 1:2 */
+    gap: 80px;
+}
+
+/* --- 9. 侧边栏样式 (教育/技能/奖项) --- */
+.res-label {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--bg-mint);
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.res-group { margin-bottom: 50px; }
+.res-time { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
+.res-bold { font-family: var(--font-heading); font-size: 1.2rem; margin: 5px 0; }
+.res-sub { color: var(--text-muted); font-size: 0.95rem; }
+
+/* 语言标签 */
+.lang-tags { margin-top: 20px; display: flex; gap: 10px; justify-content: center; }
+.badge {
+    font-family: var(--font-ui);
+    background: var(--bg-mint);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* 技能云 */
+.skill-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-cloud span {
+    background: #f8fcfb;
+    border: 1px solid var(--bg-mint);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+/* --- 10. 主内容样式 (时间轴) --- */
+.res-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    border-left: 2px solid var(--bg-mint);
+    padding-left: 30px;
+    position: relative;
+}
+
+.time-block { position: relative; margin-bottom: 50px; }
+.time-block .dot {
+    position: absolute; left: -41px; top: 6px;
+    width: 20px; height: 20px;
+    background: var(--accent-lemon);
+    border: 4px solid var(--container-white);
+    border-radius: 50%;
+}
+
+.res-desc { line-height: 1.7; color: var(--text-main); opacity: 0.85; margin-top: 10px; }
+
+/* 响应式 */
+@media (max-width: 900px) {
+    .resume-wrapper { grid-template-columns: 1fr; }
+    .resume-sidebar { order: 2; }
+    .resume-main { order: 1; }
+    h1 { font-size: 2.5rem; }
+}
+
+.footer {
+    text-align: center;
+    padding: 60px 0;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
