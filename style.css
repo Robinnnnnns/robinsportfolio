@@ -143,7 +143,7 @@ h1 {
     color: var(--text-main);
     opacity: 0.9;
     max-width: 520px;
-    margin: 0 auto 3.5rem auto;
+    margin: 0 auto 1rem auto;
 }
 
 /* --- 6. 交互组件 (Quicksand) --- */
@@ -302,7 +302,7 @@ h1 {
     grid-template-columns: 1fr 1.2fr; /* Photo on left, text on right */
     gap: 60px;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1000px;
     width: 90%;
     z-index: 10;
 }
@@ -315,8 +315,8 @@ h1 {
 
 .photo-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 380px;
+    width: 90%;
+    max-height: 500px;
     aspect-ratio: 4 / 5;
 }
 
@@ -402,16 +402,6 @@ h1 {
 .res-bold { font-family: var(--font-heading); font-size: 1.2rem; margin: 5px 0; }
 .res-sub { color: var(--text-muted); font-size: 0.95rem; }
 
-/* 语言标签 */
-.lang-tags { margin-top: 20px; display: flex; gap: 10px; justify-content: center; }
-.badge {
-    font-family: var(--font-ui);
-    background: var(--bg-mint);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
 
 /* 技能云 */
 .skill-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -420,7 +410,7 @@ h1 {
     border: 1px solid var(--bg-mint);
     padding: 5px 12px;
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 /* --- 10. 主内容样式 (时间轴) --- */
@@ -478,7 +468,7 @@ h1 {
     align-items: center;
     padding: 10px 24px;
     background-color: transparent;
-    border: 2px solid var(--text-main);
+    border: 1px solid var(--text-main);
     border-radius: 50px; /* 彻底的胶囊形状 */
     
     /* 字体设置 */
@@ -527,4 +517,138 @@ h1 {
     .social-links {
         justify-content: center;
     }
+}
+
+.bio-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    margin: 0px 0;
+    font-family: var(--font-body);
+
+}
+.card h3 {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* --- 13. 纯 CSS 泡泡背景 --- */
+.bubble-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1; /* 确保在背景色之上，内容之下 */
+    pointer-events: none; /* 整体穿透，不影响页面滚动 */
+}
+
+.bubble {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0.6;
+    pointer-events: auto; /* 允许泡泡接收点击 */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    
+    /* 默认运行动画 */
+    animation: float-bubble 15s linear infinite alternate;
+}
+
+/* --- 实现点击静止：利用 :focus --- */
+/* 为了让 div 能接收 focus，HTML 中需要加 tabindex="0" (见下方说明) */
+.bubble:focus {
+    animation-play-state: paused !important;
+    opacity: 0.8;
+    outline: none; /* 去掉默认的蓝色外框 */
+    border: 1px solid var(--accent-lemon); /* 增加一个细边框（使用你的主题深灰色） */
+    transform: scale(1.1); /* 轻微放大 */
+    box-shadow: 0 0 5px rgba(255, 216, 176, 0.6); /* 增加柠檬黄的柔光 */
+}
+
+/* --- 模拟随机感：为每个泡泡设置不同的尺寸、位置和延迟 --- */
+/* Bubble 1: Top-Left, now much larger */
+.b1 { 
+    width: 140px; 
+    height: 140px; 
+    left: 30%; /* Near the left edge */
+    top: 25%; 
+    animation-delay: -2s; 
+}
+
+/* Bubble 2: Largest, slightly lower, more to the center-left */
+.b2 { 
+    width: 100px; 
+    height: 100px; 
+    left: 20%; /* Shifted towards center-left */
+    top: 15%; 
+    animation-delay: -5s; 
+    animation-duration: 18s; /* Slower because it's massive */
+}
+
+/* Bubble 3: Smaller, highest up, near the edge */
+.b3 { 
+    width: 80px; 
+    height: 80px; 
+    left: 10%; /* Very close to left edge */
+    top: 20%; 
+    animation-delay: -1s; 
+}
+
+/* Bubble 4: Mid-sized, lower down, slightly more to the center */
+.b4 { 
+    width: 170px; 
+    height: 170px; 
+    left: 5%; /* Further towards the center-left */
+    top: 65%; 
+    animation-delay: -8s; 
+    animation-duration: 20s; 
+}
+
+/* Bubble 5: Small, lowest one on the left */
+.b5 { 
+    width: 100px; 
+    height: 100px; 
+    left: 15%; /* Concentrated on far-left */
+    top: 80%; 
+    animation-delay: -3s; 
+}
+
+/* Bubble 6: Mid-sized, in the middle of the left column */
+.b6 { 
+    width: 110px; 
+    height: 110px; 
+    left: 10%; /* Overlapping slightly with others for a natural feel */
+    top: 40%; 
+    animation-delay: -12s; 
+}
+/* 飘动动画轨迹 */
+@keyframes float-bubble {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(40px, -60px); }
+    100% { transform: translate(-20px, -120px); }
+}
+
+.scroll {
+    position: absolute;
+    bottom: 30px;      /* 距离底部 30px */
+    left: 50%;         /* 移动到水平中线 */
+    transform: translateX(-50%); /* 向左偏移自身宽度的 50%，实现完美居中 */ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.6;
+    text-decoration: none;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    transition: opacity 0.3s ease;
+}
+
+.scroll:hover {
+    opacity : 1;
 }
