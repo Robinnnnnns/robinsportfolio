@@ -1,0 +1,112 @@
+/* --- 1. DESIGN SYSTEM (From your original) --- */
+:root {
+    --bg-mint: #eef7f2;
+    --container-white: #ffffff;
+    --accent-lemon: #ffd8b0; 
+    --text-main: #3d4240;      
+    --text-muted: #8e9495;
+    --font-heading: 'Lora', serif;       
+    --font-body: 'Mulish', sans-serif;   
+    --font-ui: 'Quicksand', sans-serif;  
+    --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- 2. BASE RESET --- */
+body, html {
+    margin: 0; padding: 0;
+    width: 100%;
+    background-color: var(--bg-mint);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-body);
+    /* IMPORTANT: Change 'overflow: hidden' to 'auto' to allow scrolling */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --- 3. PAGE 1: ABOUT ME (Initial Content) --- */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full screen for the first look */
+    padding: 80px 40px;
+    position: relative;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    max-width: 1100px;
+}
+
+/* Photo & Status Styles */
+.image-stack {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 4/5;
+}
+.photo {
+    width: 100%; height: 100%;
+    object-fit: cover; border-radius: 40px;
+    position: relative; z-index: 2;
+}
+.photo-blob {
+    position: absolute; top: 20px; left: 20px;
+    width: 100%; height: 100%;
+    background: var(--accent-lemon);
+    border-radius: 40px; z-index: 1;
+    opacity: 0.6;
+}
+
+/* Bio Cards Grid */
+.bio-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 40px 0;
+}
+.card h3 {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+/* --- 4. PAGE 2: RESUME (The Scroll-down Content) --- */
+.resume-section {
+    background: var(--container-white);
+    min-height: 100vh;
+    padding: 120px 10%;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.02);
+}
+
+.timeline-item {
+    padding-left: 30px;
+    border-left: 2px solid var(--bg-mint);
+    margin-bottom: 50px;
+    position: relative;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute; left: -9px; top: 5px;
+    width: 16px; height: 16px;
+    background: var(--accent-lemon);
+    border-radius: 50%;
+}
+
+/* Social Pills */
+.social-links { display: flex; gap: 12px; margin-top: 30px; }
+.pill {
+    padding: 10px 20px; border-radius: 50px;
+    border: 2px solid var(--text-main);
+    font-family: var(--font-ui); font-weight: 700;
+    text-decoration: none; color: var(--text-main);
+    transition: 0.3s;
+}
+.pill:hover { background: var(--text-main); color: white; }
