@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', () => {
             left: `${x - size/2}px`,
             top: `${y - size/2}px`,
             fontSize: `${size}px`,
-            color: 'var(--accent-lemon)', // 使用你的柠檬黄主题色
+            color: 'var(--accent-orange)', 
             filter: 'drop-shadow(0 2px 4px rgba(255,216,176,0.3))',
             pointerEvents: 'none', // 不影响点击
             zIndex: '10001',      // 位于宠物之上
@@ -162,3 +162,5 @@ window.addEventListener('DOMContentLoaded', () => {
         // 增加平滑的透明度变化
         requestAnimationFrame(() => animateHeart(heart));
     }
+
+    
