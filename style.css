@@ -851,6 +851,25 @@ h1 {
 .work-info { padding: 30px;font-family: var(--font-body) }
 .work-info h3 { font-family: var(--font-heading); margin: 0 0 10px 0; }
 
+@media (max-width: 850px) {
+    .content-wrapper {
+        padding: 80px 20px 0; /* 缩小顶部间距，增加左右边距防止贴边 */
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr; /* 强制变为单列 */
+        gap: 20px;
+    }
+
+    .work-item.large {
+        grid-column: span 1; /* 大卡片在手机上也只占一列 */
+    }
+
+    .work-img-placeholder {
+        min-height: 180px; /* 稍微降低手机端占位高度 */
+    }
+}
+
 /* --- 1. 基础容器 (保持原样) --- */
 .side-illustrations-container {
     position: fixed;
