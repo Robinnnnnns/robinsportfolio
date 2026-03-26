@@ -3,7 +3,7 @@
     /* 色彩 */
     --bg-mint: #eef7f2;
     --container-white: #ffffff;
-    --accent-lemon: #ffd8b0; 
+    --accent-orange: #ffd8b0; 
     --text-main: #3d4240;     
     --text-muted: #8e9495;
     --container-white:#f8fcfb;
@@ -40,7 +40,7 @@ body, html {
     position: absolute;
     pointer-events: auto;
     top: 12px;
-    right: 40px;
+    right: 52px;
     z-index: 20;
 }
 
@@ -96,8 +96,142 @@ body, html {
 
 
 
+/* --- 导航栏增强 --- */
+.top-nav-container {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 52px;
+    z-index: 100;
+    background: rgba(238, 247, 242, 0.8); /* 使用你的 --bg-mint */
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;        
+    width: auto;         
+    object-fit: contain; 
+    transition: transform 0.3s var(--ease-elastic); 
+}
 
 
+.logo:hover img {
+    transform: scale(1.05); 
+}
+
+.nav-links-wrapper { display: flex; align-items: center; }
+
+/* 下拉菜单逻辑 */
+.nav-item-dropdown { position: relative; }
+.dropdown-menu {
+    position: absolute;
+    top: 100%; left: 0;
+    background: var(--container-white);
+    min-width: 160px;
+    border-radius: 15px;
+    padding: 10px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.3s var(--ease-elastic);
+}
+.nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    font-family: var(--font-ui);
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.dropdown-menu a:hover { background: var(--bg-mint); }
+
+/* --- 侧边隐藏导航 --- */
+.side-nav-trigger {
+    position: fixed;
+    left: 30px; top: 50%;
+    transform: translateY(-50%);
+    z-index: 101;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    writing-mode: vertical-lr;
+    padding: 12px 8px;
+    background: var(--accent-orange);
+    border-radius: 50px;
+}
+
+.side-sidebar {
+    position: fixed;
+    left: -280px; top: 0;
+    width: 240px; height: 100vh;
+    background: var(--container-white);
+    z-index: 102;
+    padding: 100px 30px;
+    transition: left 0.5s var(--ease-elastic);
+    box-shadow: 20px 0 60px rgba(0,0,0,0.03);
+}
+
+#nav-toggle:checked ~ .side-sidebar { left: 0; }
+
+.side-menu a {
+    display: block;
+    margin-bottom: 25px;
+    font-family: var(--font-ui);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+.side-menu a:hover { color: var(--text-main); }
+.side-menu-title {
+    font-family: var(--font-heading);
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-orange);
+}
+/* 1. 关闭按钮样式 */
+.close-sidebar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.close-sidebar:hover {
+    color: var(--text-main);
+}
+
+/* 2. 当侧边栏展开时，隐藏原本左侧的 MENU 标签 */
+#nav-toggle:checked ~ .side-nav-trigger {
+    opacity: 0;
+    pointer-events: none; /* 防止点击到已透明的按钮 */
+    transition: opacity 0.3s ease;
+}
+
+/* 3. 优化原本侧边栏的过渡效果（确保展开/收回都平滑） */
+.side-nav-trigger {
+    transition: opacity 0.3s ease, transform 0.3s var(--ease-elastic);
+}
 
 
 
@@ -144,6 +278,7 @@ h1 {
 .highlight {
     position: relative;
     display: inline-block;
+    z-index: 1;
 }
 
 .highlight::after {
@@ -151,7 +286,7 @@ h1 {
     position: absolute;
     left: 0; bottom: 10px;
     width: 100%; height: 16px;
-    background-color: var(--accent-lemon);
+    background-color: var(--accent-orange);
     z-index: -1;
     border-radius: 4px;
     opacity: 0.6;
@@ -190,7 +325,7 @@ h1 {
 /* --- 6. 交互组件 (Quicksand) --- */
 .cta-button {
     font-family: var(--font-ui);
-    background-color: var(--accent-lemon);
+    background-color: var(--accent-orange);
     border: none;
     padding: 16px 48px;
     border-radius: 100px; 
@@ -255,7 +390,7 @@ h1 {
 }
 
 .bouncing_robin:hover {
-    filter: drop-shadow(0 0 8px var(--accent-lemon)) brightness(1.1);
+    filter: drop-shadow(0 0 8px var(--accent-orange)) brightness(1.1);
     
 
     transform: translateX(-50%) scale(1.1); 
@@ -367,12 +502,12 @@ h1 {
     box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-/* The "Lemon" deco behind the photo */
+/* The "orange" deco behind the photo */
 .photo-deco-blob {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: var(--accent-lemon);
+    background-color: var(--accent-orange);
     top: 20px;
     left: -20px; /* Offset to the left for a playful look */
     border-radius: 40px;
@@ -468,7 +603,7 @@ h1 {
 .time-block .dot {
     position: absolute; left: -40px; top: 4px;
     width: 20px; height: 20px;
-    background: var(--accent-lemon);
+    background: var(--accent-orange);
     border: 4px solid var(--container-white);
     border-radius: 50%;
 }
@@ -535,8 +670,8 @@ h1 {
 /* 悬停效果：背景变色，向上轻微浮动 */
 .pill:hover {
     color: var(--text-main);
-    background-color: var(--accent-lemon);
-    border-color: var(--accent-lemon);
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(255, 216, 176, 0.4); /* 使用柠檬黄的阴影 */
 }
@@ -602,7 +737,7 @@ h1 {
     animation-play-state: paused !important;
     opacity: 0.8;
     outline: none; /* 去掉默认的蓝色外框 */
-    border: 1px solid var(--accent-lemon); /* 增加一个细边框（使用你的主题深灰色） */
+    border: 1px solid var(--accent-orange); /* 增加一个细边框（使用你的主题深灰色） */
     transform: scale(1.1); /* 轻微放大 */
     box-shadow: 0 0 5px rgba(255, 216, 176, 0.6); /* 增加柠檬黄的柔光 */
 }
@@ -671,3 +806,40 @@ h1 {
 }
 
 
+
+
+/* --- 作品展示布局 --- */
+.content-wrapper {
+    padding-top: 120px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.project-header { text-align: center; margin-bottom: 80px; }
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding-bottom: 100px;
+}
+
+.work-item {
+    background: var(--container-white);
+    border-radius: 40px;
+    overflow: hidden;
+    transition: transform 0.4s var(--ease-elastic);
+}
+.work-item.large { grid-column: span 2; }
+.work-item:hover { transform: scale(1.02); }
+
+.work-img-placeholder {
+    width: 100%; height: 350px;
+    background: #f0f0f0;
+    display: flex; align-items: center; 
+    justify-content: center;
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+}
+.work-info { padding: 30px; }
+.work-info h3 { font-family: var(--font-heading); margin: 0 0 10px 0; }
