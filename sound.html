@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sound Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/soundui.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <nav class="top-nav-container">
+  <a href="/" class="logo">
+        <img src="./assets/soundui.png" alt="Game">
+    </a>    
+    <div class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-item-dropdown">
+            <a href="#" class="nav-link">Game Design ▾</a>
+            <div class="dropdown-menu">
+                <a href="game-1.html">How to Become Linnnnnnk</a>
+                <a href="#">The Revenge of Ophelia</a>
+                <a href="#">We will finally survive the spring</a>
+                <a href="#">......</a>
+
+            </div>
+    
+        </div>
+             <div class="nav-item-dropdown">
+            <a href="#" class="nav-link">UX Design ▾</a>
+            <div class="dropdown-menu">
+                <a href="#">Wombat Patch</a>
+                <a href="#">City2Surf</a>
+                <a href="#">CoLab</a>
+                <a href="#">......</a>
+            </div>
+    
+        </div>
+             <div class="nav-item-dropdown">
+            <a href="#" class="nav-link">Others ▾</a>
+            <div class="dropdown-menu">
+                <a href="sound.html">Sound Design</a>
+                <a href="#">Photography</a>
+                <a href="#">Stickers</a>
+                <a href="#">3D Modeling</a>
+                <a href="#">Sketches</a>
+                <a href="#">Creative Writing</a>
+            </div>
+    
+        </div>
+    </div>
+</nav>
+
+<input type="checkbox" id="nav-toggle" style="display: none;">
+<label for="nav-toggle" class="side-nav-trigger">
+    <span>◂</span>
+</label>
+<aside class="side-sidebar">
+    <a href="/" class="side-logo">
+        <img src="./assets/soundui.png" alt="Logo">
+    </a>
+    <label for="nav-toggle" class="close-sidebar">✕</label>
+    <nav class="side-menu">
+        <a href="game-1.html">Sound Design</a>
+        <a href="game-1.html">Photography</a>
+        <a href="game-1.html">Stickers</a>
+        <a href="game-1.html">3D Modeling</a>
+        <a href="game-1.html">Sketches</a>
+        <a href="game-1.html">Creative Writing</a>
+
+    </nav>
+</aside>
+
+
+    <nav class="folder-tabs">
+    <a href="#section1" class="tab-item">Interaction Sound Design</a>
+    <a href="#section2" class="tab-item">Sound Design for Game</a>
+    <a href="#section3" class="tab-item">Soundscape Design</a>
+    <a href="#section4" class="tab-item">Podcast</a>
+</nav>
+
+<main class="audio-portfolio">
+    <section id="section1" class="page-section">
+        <div class="banner-box">
+            <img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/bannermagpie.jpg" alt="Banner" class="full-banner">
+        </div>
+        <div class="split-layout">
+            <div class="video">
+                <div class="video-placeholder">视频播放区</div>
+            </div>
+            <div class="right-grid">
+                <div class="mini-card"><img src="assets/i1.png"> <p>插画说明 1</p> </div>
+                <div class="mini-card"><img src="assets/i2.png"> <p>插画说明 2</p> </div>
+                <div class="mini-card"><img src="assets/i3.png"> <p>插画说明 3</p> </div>
+                <div class="mini-card"><img src="assets/i4.png"> <p>插画说明 4</p> </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section2" class="page-section">
+        
+        <header class="project-header" style="margin-bottom: 28px;margin-top: 16px;">
+        <p class="subtitle" style="margin-bottom: 0;">For DESC9117 Sound Design for New Media</p>
+        <h1 >Sound Design for <span class="highlight" href="">Wwise</span> Cube</h1>
+       </header>
+       <a class="hero-grid">
+        <div class="work-item" style="width: 85%;" >
+            <div class="work-img-placeholder" ><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cubecover.png"></div>
+            <div class="work-info" style="padding: 20px;">Magpie, you’re the star here. Use your magic and save the birds!</div>
+        </div>
+        <div class="video";>
+            <div class="video-placeholder">核心展示视频</div>
+        </div>
+       </a>
+    </section>
+
+    <section id="section3" class="page-section">
+        <header class="project-header" style="margin-bottom: 28px;margin-top: 16px;">
+        <p class="subtitle" style="margin-bottom: 0;">For DESC9117 Sound Design for New Media</p>
+        <h1 >Synthesized <span class="highlight" >Soundscape</span> Design</h1>
+       </header>
+        <div class="large-display">
+            <img src="assets/big-scene.jpg" class="rounded-img">
+            <div class="audio-info-box">
+                <h3>音频作品标题</h3>
+                <p class="intro-text">这里是关于音频创作背景、心理学运用或希腊神话灵感的详细文字描述。</p>
+                <audio controls class="custom-audio">
+                    <source src="assets/audio.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <section id="section4" class="page-section">
+        <div class="complex-grid">
+            <div class="poster-area">
+                <img src="assets/poster.jpg" class="vertical-poster">
+            </div>
+            <div class="side-content">
+                <audio controls class="custom-audio">
+                    <source src="assets/audio2.mp3" type="audio/mpeg">
+                </audio>
+                <div class="double-img">
+                    <img src="assets/detail1.jpg">
+                    <img src="assets/detail2.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer class="footer">
+        <p>© Xinru(Robin) Shi and Pink Robin Studio</p>
+    </footer>
+
+    <div class="fixed-illustration">
+        <img src="./assets/others/magpiesticker 1.png" alt="装饰插画">
+        
+    </div>
+</body>
