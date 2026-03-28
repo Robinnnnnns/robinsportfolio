@@ -10,67 +10,11 @@
 
 </head>
 <body>
-    <nav class="top-nav-container">
-  <a href="/" class="logo">
-        <img src="./assets/soundui.png" alt="Game">
-    </a>    
-    <div class="nav-links-wrapper">
-        <a href="index.html" class="nav-link">Home</a>
-        <div class="nav-item-dropdown">
-            <a href="#" class="nav-link">Game Design ▾</a>
-            <div class="dropdown-menu">
-                <a href="game-1.html">How to Become Linnnnnnk</a>
-                <a href="#">The Revenge of Ophelia</a>
-                <a href="#">We will finally survive the spring</a>
-                <a href="#">......</a>
+    <div id="nav-placeholder"></div>
+    <div id="nav-sidebar"></div>
 
-            </div>
-    
-        </div>
-             <div class="nav-item-dropdown">
-            <a href="#" class="nav-link">UX Design ▾</a>
-            <div class="dropdown-menu">
-                <a href="#">Wombat Patch</a>
-                <a href="#">City2Surf</a>
-                <a href="#">CoLab</a>
-                <a href="#">......</a>
-            </div>
-    
-        </div>
-             <div class="nav-item-dropdown">
-            <a href="#" class="nav-link">Others ▾</a>
-            <div class="dropdown-menu">
-                <a href="sound.html">Sound Design</a>
-                <a href="#">Photography</a>
-                <a href="#">Stickers</a>
-                <a href="#">3D Modeling</a>
-                <a href="#">Sketches</a>
-                <a href="#">Creative Writing</a>
-            </div>
-    
-        </div>
-    </div>
-</nav>
 
-<input type="checkbox" id="nav-toggle" style="display: none;">
-<label for="nav-toggle" class="side-nav-trigger">
-    <span>◂</span>
-</label>
-<aside class="side-sidebar">
-    <a href="/" class="side-logo">
-        <img src="./assets/soundui.png" alt="Logo">
-    </a>
-    <label for="nav-toggle" class="close-sidebar">✕</label>
-    <nav class="side-menu">
-        <a href="game-1.html">Sound Design</a>
-        <a href="game-1.html">Photography</a>
-        <a href="game-1.html">Stickers</a>
-        <a href="game-1.html">3D Modeling</a>
-        <a href="game-1.html">Sketches</a>
-        <a href="game-1.html">Creative Writing</a>
 
-    </nav>
-</aside>
 
 
     <nav class="folder-tabs">
@@ -173,4 +117,13 @@
         <img src="./assets/others/magpiesticker 1.png" >
         
     </div>
+<script src="nav.js"></script>
 </body>
+
+<script>
+    fetch('nav-other.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>

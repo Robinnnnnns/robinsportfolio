@@ -163,24 +163,5 @@ window.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(() => animateHeart(heart));
     }
 
-    const nav = document.querySelector('.top-nav-container');
-    let scrollTimer = null;
-
-    window.addEventListener('scroll', () => {
-        // 1. 只要在滚动，就保持 "scrolled" 状态（收窄、带边框）
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-            
-            // 2. 清除之前的计时器
-            clearTimeout(scrollTimer);
-
-            // 3. 设置新计时器：停止滚动 1200 毫秒后移除类名
-            scrollTimer = setTimeout(() => {
-                // 如果页面依然在顶部附近，或者你想让它只要停下就恢复：
-                nav.classList.remove('scrolled');
-            }, 1200); // 你可以调整这个数字，1200ms 比较从容
-        } else {
-            // 4. 如果回到了页面最顶端，立即恢复
-            nav.classList.remove('scrolled');
-        }
-    });
+   
+   

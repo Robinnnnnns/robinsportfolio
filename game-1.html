@@ -13,65 +13,10 @@
 
 <body>
 
-  <nav class="top-nav-container">
-  <a href="/" class="logo">
-        <img src="./assets/gameui.png" alt="Game">
-    </a>    
-    <div class="nav-links-wrapper">
-        <a href="index.html" class="nav-link">Home</a>
-        <div class="nav-item-dropdown">
-            <a href="#" class="nav-link">Game Design ▾</a>
-            <div class="dropdown-menu">
-                <a href="game-1.html">How to Become Linnnnnnk</a>
-                <a href="#">The Revenge of Ophelia</a>
-                <a href="#">We will finally survive the spring</a>
-                <a href="#">......</a>
+  
+<div id="nav-placeholder"></div>
+<div id="nav-sidebar"></div>
 
-            </div>
-    
-        </div>
-             <div class="nav-item-dropdown">
-            <a href="#" class="nav-link">UX Design ▾</a>
-            <div class="dropdown-menu">
-                <a href="#">Wombat Patch</a>
-                <a href="#">City2Surf</a>
-                <a href="#">CoLab</a>
-                <a href="#">......</a>
-            </div>
-    
-        </div>
-             <div class="nav-item-dropdown">
-            <a href="#" class="nav-link">Others ▾</a>
-            <div class="dropdown-menu">
-                <a href="sound.html">Sound Design</a>
-                <a href="#">Photography</a>
-                <a href="#">Stickers</a>
-                <a href="#">3D Modeling</a>
-                <a href="#">Sketches</a>
-                <a href="#">Creative Writing</a>
-            </div>
-    
-        </div>
-    </div>
-</nav>
-
-<input type="checkbox" id="nav-toggle" style="display: none;">
-<label for="nav-toggle" class="side-nav-trigger">
-    <span>◂</span>
-</label>
-<aside class="side-sidebar">
-    <a href="/" class="side-logo">
-        <img src="./assets/gameui.png" alt="Logo">
-    </a>
-    <label for="nav-toggle" class="close-sidebar">✕</label>
-    <nav class="side-menu">
-        <div class="side-menu-title">Game Design</div>
-        <a href="game-1.html">How to Become Linnnnnnk</a>
-        <a href="#process">The Revenge of Ophelia</a>
-        <a href="#gallery">We will finally survive the spring</a>
-        <a href="#results">....</a>
-    </nav>
-</aside>
 
 <main class="content-wrapper">
     <header class="project-header" id="overview">
@@ -120,6 +65,14 @@
     <footer class="footer">
         <p>© Xinru(Robin) Shi and Pink Robin Studio</p>
     </footer>
-
+<script src="nav.js"></script>
 </body>
 </html>
+
+<script>
+    fetch('nav-game.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>

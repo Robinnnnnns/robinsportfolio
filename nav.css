@@ -1,0 +1,266 @@
+/* --- 3. 导航栏 (Quicksand) --- */
+.top-nav {
+    position: absolute;
+    pointer-events: auto;
+    top: 12px;
+    right: 52px;
+    z-index: 20;
+}
+
+
+.nav-link {
+    display: inline-flex;  
+    align-items: center;  
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-main);
+    margin-left: 28px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-muted);
+}
+
+.nav-icon {
+    width: 56px;         
+    height: 56px;        
+    margin-right: 12px;   
+    object-fit: contain;  
+}
+
+
+
+.top-nav-container {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 52px;
+    z-index: 100;
+    background: transparent; /* 初始透明 */
+    transition: all 0.4s var(--ease-elastic); /* 增加平滑弹性过渡 */
+}
+
+.top-nav-container.scrolled {
+    /* 1. 增加水平和垂直外边距，实现“收窄”悬浮效果 */
+    margin: 8px 3%; 
+    height: 56px; /* 高度也稍微收窄 */
+    
+    /* 2. 背景使用带透明度的白/薄荷绿，保持可爱感 */
+    background: rgba(248, 252, 251, 0.85); 
+    
+    /* 3. 扁平化边框和圆角 */
+    border-radius: 100px; /* 胶囊形圆角更显精致 */
+    border: 2px solid var(--text-main);
+    
+    /* 4. 硬投影也带一点透明度 */
+    box-shadow: 0 6px 0px rgba(61, 66, 64, 0.1); 
+    
+    padding: 0 30px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;        
+    width: auto;         
+    object-fit: contain; 
+    transition: transform 0.3s var(--ease-elastic); 
+}
+
+
+.logo:hover img {
+    transform: scale(1.05); 
+}
+
+.scrolled .logo img {
+    height: 50px;
+}
+.scrolled .nav-link {
+    font-size: 14px;
+}
+.nav-links-wrapper { display: flex; align-items: center; }
+
+/* --- 下拉菜单逻辑 (扁平可爱卡片风格) --- */
+.nav-item-dropdown { position: relative; }
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px); /* 稍微向下偏移，留出呼吸感 */
+    left: 0;
+    background: var(--container-white);
+    min-width: 160px;
+    
+    /* 1. 核心风格修改：实线边框 + 适中的圆角 */
+    border: 1.6px solid var(--text-main);
+    border-radius: 18px; 
+    
+    /* 2. 硬投影：扁平插画风的灵魂 */
+    box-shadow: 6px 6px 0px rgba(61, 66, 64, 0.08); 
+    
+    padding: 10px 0;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: all 0.3s var(--ease-elastic);
+    z-index: 110;
+}
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -15px;      /* 向上延伸，盖住那 10px 的空隙 */
+    left: 0;
+    width: 100%;
+    height: 20px;    /* 高度只要能桥接上即可 */
+    background: transparent; /* 隐形，不影响视觉 */
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    font-family: var(--font-ui);
+    font-weight: 700; /* 加粗字体，更具互动感 */
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 14px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* 3. 悬停效果：背景变色，且文字轻微右移 */
+.dropdown-menu a:hover {
+    color: var(--text-muted);
+    padding-left: 25px; /* 产生被“推开”的灵动感 */
+}
+
+/* 4. 可选装饰：给第一个菜单项顶部和最后一个底部加圆角保护 */
+.dropdown-menu a:first-child { border-radius: 15px 15px 0 0; }
+.dropdown-menu a:last-child { border-radius: 0 0 15px 15px; }
+
+/* --- 侧边隐藏导航 --- */
+.side-nav-trigger {
+    position: fixed;
+    left: 30px; top: 50%;
+    transform: translateY(-50%);
+    z-index: 101;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    writing-mode: vertical-lr;
+    padding: 12px 8px;
+    background: var(--accent-orange);
+    border-radius: 50px;
+    border: 2px solid var(--text-main); /* 增加粗线条 */
+    border-left: none;                  /* 左侧开口，紧贴屏幕边缘 */
+    border-radius: 0 12px 12px 0;       /* 改为更像文件夹的半方圆角 */
+    padding: 16px 8px;                  /* 稍微加宽一点点 */
+    box-shadow: 4px 0 0 rgba(0,0,0,0.05); /* 硬朗投影 */
+}
+
+.side-sidebar {
+    position: fixed;
+    left: -280px; top: 0;
+    width: 240px; height: 100vh;
+    background: var(--container-white);
+    z-index: 102;
+    padding: 100px 30px;
+    transition: left 0.5s var(--ease-elastic);
+    box-shadow: 20px 0 60px rgba(0,0,0,0.03);
+    border-right: 2px solid var(--text-main); /* 增加右侧分界线 */
+    box-shadow: none; /* 去掉柔和阴影，改用扁平风格 */
+}
+
+.side-nav-trigger:hover {
+    transform: translateY(-50%) translateX(5px); /* 向右弹出 5px */
+    background: var(--container-white);
+}
+
+/* --- 侧边栏 Logo 样式 --- */
+.side-logo {
+    display: inline-block;
+    margin-bottom: 30px; /* 与下方标题拉开距离 */
+    transition: transform 0.3s var(--ease-elastic);
+}
+
+.side-logo img {
+    height: 52px;        /* 比顶部导航栏稍微小一点，显得精致 */
+    width: auto;
+    object-fit: contain;
+    /* 选加：如果你想要更统一的插画感，可以给 Logo 也加个细黑边或阴影 */
+    /* filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1)); */
+}
+
+.side-logo:hover {
+    transform: scale(1.1) rotate(-3deg); /* 悬停时往左歪一点，更调皮 */
+}
+
+/* 调整原有标题的间距，确保不拥挤 */
+.side-menu-title {
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+#nav-toggle:checked ~ .side-sidebar { left: 0; }
+
+.side-menu a {
+    display: block;
+    margin-bottom: 25px;
+    font-family: var(--font-ui);
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+.side-menu a:hover { color: var(--text-muted); }
+.side-menu-title {
+    font-family: var(--font-ui);
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-orange);
+}
+/* 1. 关闭按钮样式 */
+.close-sidebar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.close-sidebar:hover {
+    color: var(--text-main);
+}
+
+/* 2. 当侧边栏展开时，隐藏原本左侧的 MENU 标签 */
+#nav-toggle:checked ~ .side-nav-trigger {
+    opacity: 0;
+    pointer-events: none; /* 防止点击到已透明的按钮 */
+    transition: opacity 0.3s ease;
+}
+
+/* 3. 优化原本侧边栏的过渡效果（确保展开/收回都平滑） */
+.side-nav-trigger {
+    transition: opacity 0.3s ease, transform 0.3s var(--ease-elastic);
+}
+
+

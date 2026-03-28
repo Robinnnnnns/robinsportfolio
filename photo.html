@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photography</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/soundui.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div id="nav-sidebar"></div>
+
+
+<section class="photography-section">
+    <header class="project-header" id="overview">
+        <h1><span class="highlight" href="">Bird</span> Photography</h1>
+        <p class="intro-text"><i>Life of an amateur bird photographer.</i><a href="https://www.instagram.com/robinnnnnns?igsh=MXVrNWw5ejJybGNpZQ%3D%3D&utm_source=qr" style="color: var(--text-main);">→</a></p>
+    </header>
+
+    <div class="hero-photos-grid">
+        <div class="photo-frame-large label-top-left" style="--delay: 0.1s;">
+            <div class="frame-label">FEATURED 01</div>
+            <img src="assets/hero-1.jpg" alt="Hero 1">
+        </div>
+        <div class="photo-frame-large label-top-right" style="--delay: 0.2s;">
+            <div class="frame-label">FEATURED 02</div>
+            <img src="assets/hero-2.jpg" alt="Hero 2">
+        </div>
+    </div>
+
+
+
+    <div class="photo-scroll-wrapper">
+        <div class="photo-grid-horizontal">
+            <div class="thumb-card" style="--delay: 0.3s;">
+                <div class="thumb-frame"><div class="placeholder-img">PIC 01</div></div>
+                <span class="thumb-caption">Landscape View</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.35s;">
+                <div class="thumb-frame"><div class="placeholder-img color-orange">PIC 02</div></div>
+                <span class="thumb-caption">Ocean Breeze</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.4s;">
+                <div class="thumb-frame"><div class="placeholder-img color-lemon">PIC 03</div></div>
+                <span class="thumb-caption">Sunset Glow</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.45s;">
+                <div class="thumb-frame"><div class="placeholder-img">PIC 04</div></div>
+                <span class="thumb-caption">City Night</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.5s;">
+                <div class="thumb-frame"><div class="placeholder-img color-mint">PIC 05</div></div>
+                <span class="thumb-caption">Forest Path</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.55s;">
+                <div class="thumb-frame"><div class="placeholder-img color-lemon">PIC 06</div></div>
+                <span class="thumb-caption">Morning Dew</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.6s;">
+                <div class="thumb-frame"><div class="placeholder-img">PIC 07</div></div>
+                <span class="thumb-caption">Desert Sand</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.65s;">
+                <div class="thumb-frame"><div class="placeholder-img color-orange">PIC 08</div></div>
+                <span class="thumb-caption">Snow Peak</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.7s;">
+                <div class="thumb-frame"><div class="placeholder-img color-mint">PIC 09</div></div>
+                <span class="thumb-caption">Urban Art</span>
+            </div>
+            <div class="thumb-card" style="--delay: 0.75s;">
+                <div class="thumb-frame"><div class="placeholder-img">PIC 10</div></div>
+                <span class="thumb-caption">Final Shot</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+<script src="nav.js"></script>
+</body>
+
+<script>
+    fetch('nav-other.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>
