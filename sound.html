@@ -18,9 +18,9 @@
 
 
     <nav class="folder-tabs">
-    <a href="#section1" class="tab-item">Interaction Sound Design</a>
-    <a href="#section2" class="tab-item">Sound Design for Game</a>
-    <a href="#section3" class="tab-item">Soundscape Design</a>
+    <a href="#section1" class="tab-item">Wwise01</a>
+    <a href="#section2" class="tab-item">Wwise02</a>
+    <a href="#section3" class="tab-item">Soundscape</a>
     <a href="#section4" class="tab-item">Podcast</a>
 </nav>
 
@@ -30,37 +30,65 @@
             <img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/bannermagpie.jpg" alt="Banner" class="full-banner">
         </div>
         <div class="split-layout">
-            <div class="video">
-                <div class="video-placeholder">视频播放区</div>
-            </div>
-            <div class="right-grid">
-                <div class="mini-card"><img src="assets/i1.png"> <p>插画说明 1</p> </div>
-                <div class="mini-card"><img src="assets/i2.png"> <p>插画说明 2</p> </div>
-                <div class="mini-card"><img src="assets/i3.png"> <p>插画说明 3</p> </div>
-                <div class="mini-card"><img src="assets/i4.png"> <p>插画说明 4</p> </div>
-            </div>
+            <div class="video"; style="margin-bottom: 0px;">
+            <div class="video sticker-video" onclick="playVideo(this)">
+            <video class="video-content" preload="none" loop playsinline >
+            <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cube-1.mp4" type="video/mp4">
+         </video>
+    
+    <div class="mini-play-sticker">▶</div>
+</div>
+                
+            
+        </div>
+            <div class="work-grid" style="gap: 20px; max-width: 40%;" >
+                <div class="work-item" style="max-height: 24vh;">
+                <div class="work-img-placeholder"><img src="assets/blankbird.png"></div>
+                <div class="work-info">Pan</div>
+                </div>
+                <div class="work-item" style="max-height: 24vh;">
+                <div class="work-img-placeholder"><img src="assets/blankbird.png"></div>
+                <div class="work-info">Pan</div>
+                </div>
+                <div class="work-item"style="max-height: 24vh;">
+                <div class="work-img-placeholder"><img src="assets/blankbird.png"></div>
+                <div class="work-info">Pan</div>
+                </div>
+                <div class="work-item"style="max-height: 24vh;">
+                <div class="work-img-placeholder"><img src="assets/blankbird.png"></div>
+                <div class="work-info">Pan</div>
+                </div>
+            </div>  
         </div>
     </section>
 
     <section id="section2" class="page-section">
         
-        <header class="project-header" style="margin-bottom: 28px;margin-top: 16px;">
+        <header class="project-header" style="margin-bottom: 60px;margin-top: 40px;">
         <p class="subtitle" style="margin-bottom: 0;">For DESC9117 Sound Design for New Media</p>
         <h1 >Sound Design for <span class="highlight" href="">Wwise</span> Cube</h1>
        </header>
-       <a class="hero-grid">
-        <div class="work-item" style="width: 85%;" >
+       <div class="complex-grid" style="grid-template-columns:1fr 3fr; width: 100%;">
+        <div class="work-item"  >
             <div class="work-img-placeholder" ><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cubecover.png"></div>
             <div class="work-info" style="padding: 20px;">Magpie, you’re the star here. Use your magic and save the birds!</div>
         </div>
         <div class="video";>
-            <div class="video-placeholder">核心展示视频</div>
+            <div class="video sticker-video" onclick="playVideo(this)">
+    <video class="video-content" preload="none" loop playsinline poster="封面.jpg">
+        <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cube-1.mp4" type="video/mp4">
+    </video>
+    
+    <div class="mini-play-sticker">▶</div>
+</div>
+                
+            
         </div>
-       </a>
+    </div>
     </section>
 
     <section id="section3" class="page-section">
-        <header class="project-header" style="margin-bottom: 28px;margin-top: 16px;">
+        <header class="project-header" style="margin-bottom: 20px;margin-top: 20px;">
         <p class="subtitle" style="margin-bottom: 0;">For DESC9117 Sound Design for New Media</p>
         <h1 >Synthesized <span class="highlight" >Soundscape</span> Design</h1>
        </header>
@@ -82,11 +110,11 @@
     </section>
 
     <section id="section4" class="page-section">
-        <header class="project-header" style="margin-bottom: 28px;margin-top: 16px;">
+        <header class="project-header" style="margin-bottom: 40px;margin-top: 20px;">
         <p class="subtitle" style="margin-bottom: 0;">For CMPN5006 Recording Portfolio</p>
         <h1 >A <span class="highlight" >Birdwatching</span> Tour in Australia</h1>
        </header>
-        <div class="complex-grid">
+        <div class="complex-grid" style="grid-template-columns:1fr 1.7fr; width: 100%;">
                 <div class="work-item" >
                <div class="work-img-placeholder" ><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/podcast.png"></div>
             </div>
@@ -97,11 +125,11 @@
                 <span class="audio-title">Birdwatching.mp3</span>
                 </div>
                  <audio class="custom-audio" controls>
-                 <source src="your-audio.mp3" type="audio/mpeg">
+                 <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/Birdwatching%20Tour_Robin%20Shi.wav" type="audio/mpeg">
                  </audio>
             </div>
                 <div class="work-item">
-                    <div class="work-img-placeholder"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/podcastp1.JPG"></div>
+                    <div class="work-img-placeholder" style=" aspect-ratio: 2.5/1; object-fit: cover; object-position: center; overflow: hidden;"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/podcastp1.JPG"></div>
                     <p class="work-info" style="padding: 20px;">Australia is home to many unique bird species. Driven by my passion for them, I created this podcast to share the pure joy of their songs. I captured bird songs in a park using field recording equipment and a Zoom recorder. These recordings were layered with my own narration to produce a podcast. All audio materials were recorded and produced by me. </p>
                 </div>
             </div>
@@ -113,9 +141,9 @@
         <p>© Xinru(Robin) Shi and Pink Robin Studio</p>
     </footer>
 
-    <div class="fixed-illustration">
-        <img src="./assets/others/magpiesticker 1.png" >
-        
+   <div class="side-illustrations-container">
+    <div class="illustration-wrapper right-3" style="top: 77%;">
+        <img src="assets/others/magpiesticker.png" class="illustration-item" >
     </div>
 <script src="nav.js"></script>
 </body>

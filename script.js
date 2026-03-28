@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', () => {
         heart.innerHTML = '♥'; 
         
         // 生成随机属性使爱心各不相同
-        const size = Math.random() * 20 + 10; // 10-30px
+        const size = Math.random() * 20 + 30; // 10-30px
         const velocityX = (Math.random() - 0.5) * 6; // -3 到 3 的水平速度
         const velocityY = -(Math.random() * 4 + 4); // -4 到 -8 的向上初速度
         const rotation = Math.random() * 360; // 随机初始角度
@@ -164,4 +164,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
    
-   
+   function playVideo(container) {
+    const video = container.querySelector('video');
+    
+    if (video.paused) {
+        video.play();
+        container.classList.add('is-playing');
+    } else {
+        video.pause();
+        container.classList.remove('is-playing');
+    }
+}
