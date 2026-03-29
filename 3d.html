@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Modeling</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/3dui.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+    <meta name="color-scheme" content="light">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div id="nav-sidebar"></div>
+
+
+<section class="content-wrapper">
+
+
+
+ <header class="project-header" id="overview">
+        <p class="subtitle">For COMP5415 Multimedia Design and Authoring</p>
+        <h1><span class="highlight" href="">Wings</span> of Wonder</h1>
+        <p class="intro-text"><i>A Streamlit website for Australian Birds with 3D Modeling </i><a href="https://wingsofwonder.streamlit.app/" style="color: var(--text-main);">→</a></p>
+</header>
+
+<div class="display-case" style="--delay: 0.1s; --theme-color: var(--bg-mint);">
+        <div class="case-tag">MODEL 01</div>
+        <div class="model-viewport">
+            <model-viewer src="assets/model1.glb" 
+                          poster="assets/poster1.webp"
+                          auto-rotate camera-controls 
+                          shadow-intensity="1" 
+                          touch-action="pan-y">
+            </model-viewer>
+        </div>
+        <div class="case-info">
+            <p class="work-info">A cute low-poly character made in Blender.</p>
+        </div>
+    </div>
+
+    <div class="display-case" style="--delay: 0.2s; --theme-color: var(--accent-orange);">
+        <div class="case-tag">MODEL 02</div>
+        <div class="model-viewport">
+            <model-viewer src="assets/model2.glb" 
+                          auto-rotate camera-controls 
+                          shadow-intensity="1">
+            </model-viewer>
+        </div>
+        <div class="case-info">
+            <p class="work-info">Floating island with toon shading materials.</p>
+        </div>
+    </div>
+
+    <div class="display-case" style="--delay: 0.3s; --theme-color: var(--accent-lemon);">
+        <div class="case-tag">MODEL 03</div>
+        <div class="model-viewport">
+            <model-viewer src="assets/model3.glb" 
+                          auto-rotate camera-controls 
+                          shadow-intensity="1">
+            </model-viewer>
+        </div>
+        <div class="case-info">
+            <p class="work-info">A nostalgic cassette player with hand-painted textures.</p>
+        </div>
+    </div>
+
+<div class="video";>
+            <div class="video sticker-video" onclick="playVideo(this)">
+    <video class="video-content" preload="none" loop playsinline poster="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/videoposter3.png">
+        <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/3D4.mp4" type="video/mp4">
+    </video>
+    
+    <div class="mini-play-sticker">▶</div>
+</div>
+                
+            
+        </div>
+
+
+
+</section>
+    <div class="side-illustrations-container">
+    <div class="illustration-wrapper left-3" style="left: 8px; top: auto; bottom: -4px; ">
+        <img src="assets/others/kookasticker.png" class="illustration-item" >
+    </div>
+    </div>
+
+<footer class="footer">
+    <span>© Xinru(Robin) Shi</span>
+        <img src="./assets/robin1.png" alt="icon" class="footer-icon">
+    <span>and Pink Robin Studio</span>
+        <img src="./assets/pinkrobin.png" alt="icon" class="footer-icon">
+</footer>
+<script src="nav.js"></script>
+
+
+
+</body>
+<script>
+    fetch('nav-other.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>

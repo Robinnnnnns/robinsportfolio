@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/soundui.png" type="image/x-icon">
     <script src="script.js" defer></script>
+    <meta name="color-scheme" content="light">
 
 </head>
 <body>
@@ -32,7 +33,7 @@
         <div class="split-layout">
             <div class="video"; style="margin-bottom: 0px;">
             <div class="video sticker-video" onclick="playVideo(this)">
-            <video class="video-content" preload="none" loop playsinline >
+            <video class="video-content" preload="none" loop playsinline poster="封面.jpg">
             <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cube-1.mp4" type="video/mp4">
          </video>
     
@@ -75,7 +76,7 @@
         </div>
         <div class="video";>
             <div class="video sticker-video" onclick="playVideo(this)">
-    <video class="video-content" preload="none" loop playsinline poster="封面.jpg">
+    <video class="video-content" preload="none" loop playsinline poster="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/videoposter2.png">
         <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cube-1.mp4" type="video/mp4">
     </video>
     
@@ -109,7 +110,7 @@
         
     </section>
 
-    <section id="section4" class="page-section">
+    <section id="podcast" class="page-section">
         <header class="project-header" style="margin-bottom: 40px;margin-top: 20px;">
         <p class="subtitle" style="margin-bottom: 0;">For CMPN5006 Recording Portfolio</p>
         <h1 >A <span class="highlight" >Birdwatching</span> Tour in Australia</h1>
@@ -137,12 +138,15 @@
     </section>
 </main>
 
-    <footer class="footer">
-        <p>© Xinru(Robin) Shi and Pink Robin Studio</p>
-    </footer>
+<footer class="footer">
+    <span>© Xinru(Robin) Shi</span>
+        <img src="./assets/robin1.png" alt="icon" class="footer-icon">
+    <span>and Pink Robin Studio</span>
+        <img src="./assets/pinkrobin.png" alt="icon" class="footer-icon">
+</footer>
 
    <div class="side-illustrations-container">
-    <div class="illustration-wrapper right-3" style="top: 77%;">
+    <div class="illustration-wrapper right-3" style="top:auto;bottom: -20px;">
         <img src="assets/others/magpiesticker.png" class="illustration-item" >
     </div>
 <script src="nav.js"></script>
