@@ -5,7 +5,6 @@
 :root {
     /* 色彩 */
     --bg-mint: #eef7f2;
-    --container-white: #ffffff;
     --accent-orange: #ffd8b0; 
     --text-main: #3d4240;     
     --text-muted: #8e9495;
@@ -27,7 +26,7 @@ body, html {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: var(--bg-mint);
     color: var(--text-main);
     -webkit-font-smoothing: antialiased;
@@ -254,8 +253,7 @@ h1 {
 
 .highlight:hover::after {
     opacity: 1;              
-    transform: scaleY(1.2); 
-    transform: scaleX(1.1);  
+    transform: scale(1.1, 1.2);  
 
 }
 
@@ -384,15 +382,12 @@ h1 {
 
 .bouncing_robin:hover {
     filter: drop-shadow(0 0 8px var(--accent-orange)) brightness(1.1);
+    animation-play-state: paused; /* 鼠标移上去时小鸟停止呼吸，方便点击 */
+
     
 
-    transform: translateX(-50%) scale(1.1); 
 }
 
-
-.bouncing_robin:hover {
-    animation-play-state: paused; /* 鼠标移上去时小鸟停止呼吸，方便点击 */
-}
 
 /* --- 背景装饰层容器 --- */
 .illustration-bg {
@@ -520,7 +515,7 @@ h1 {
 /* 4. 悬停动效：像抽出来的卡片一样错开 */
 .photo-wrapper:hover .photo-deco-blob {
     transform: translate(-15px, 15px) rotate(-5deg);
-    background-color: var(--accent-lemon); /* 悬停时变色，增加惊喜感 */
+    background-color: var(--accent-orange); /* 悬停时变色，增加惊喜感 */
 }
 
 .photo-wrapper:hover .hero-photo {
@@ -545,18 +540,6 @@ h1 {
 }
 
 
-
-/* --- Mobile Fix for the Grid --- */
-@media (max-width: 900px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-    .hero-photo-area { justify-content: center; }
-    .hero-container { text-align: center; }
-    .photo-deco-blob { left: 15px; } /* Center deco on mobile */
-}
 
 
 
@@ -637,13 +620,6 @@ h1 {
 .res-desc { line-height: 1.7; font-family: var(--font-body);color: var(--text-main); opacity: 0.85; margin-top: 10px; }
 
 
-@media (max-width: 900px) {
-    .resume-wrapper { grid-template-columns: 1fr; }
-    .resume-sidebar { order: 2; }
-    .cover-page { order: 1; }
-    h1 { font-size: 2.5rem; }
-}
-
 
 .footer {
     padding: 60px 0;
@@ -723,12 +699,7 @@ h1 {
     transform: translateY(-1px) scale(0.97);
 }
 
-/* 移动端适配：小屏幕下居中显示 */
-@media (max-width: 600px) {
-    .social-links {
-        justify-content: center;
-    }
-}
+
 
 .bio-cards {
     display: grid;
@@ -944,26 +915,6 @@ h1 {
 
 
 
-
-@media (max-width: 850px) {
-    .content-wrapper {
-        padding: 80px 20px 0; /* 缩小顶部间距，增加左右边距防止贴边 */
-    }
-
-    .work-grid {
-        grid-template-columns: 1fr; /* 强制变为单列 */
-        gap: 20px;
-    }
-
-    .work-item.large {
-        grid-column: span 1; /* 大卡片在手机上也只占一列 */
-    }
-
-    .work-img-placeholder {
-        min-height: 180px; /* 稍微降低手机端占位高度 */
-    }
-}
-
 /* --- 1. 基础容器 (保持原样) --- */
 .side-illustrations-container {
     position: fixed;
@@ -1171,13 +1122,6 @@ h1 {
   opacity:0.9
 }
 
-/* 针对小屏幕的适配（防止在手机上显得太扁） */
-@media (max-width: 768px) {
-  .banner-box {
-    aspect-ratio: auto;
-    height: 300px; /* 移动端手动设置一个合适高度 */
-  }
-}
 
 .video {
     
@@ -1234,28 +1178,18 @@ h1 {
 }
 
 /* 交互状态：当视频播放时，贴纸缩小隐藏 */
-.sticker-video-alt.is-playing .mini-play-sticker {
+.sticker-video.is-playing .mini-play-sticker {
     opacity: 0;
     transform: scale(0) rotate(-20deg);
 }
 
 /* Hover 效果：贴纸抖动提示 */
-.sticker-video-alt:hover .mini-play-sticker {
+.sticker-video:hover .mini-play-sticker {
     transform: scale(1.1) rotate(5deg);
-    background: var(--accent-lemon);
+    background: var(--accent-orange);
 }
 
-/* 响应式适配：在手机上改为上下堆叠，宽度占满 */
-@media (max-width: 768px) {
-  .banner-container {
-    flex-direction: column;
-  }
-  .video {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 250px; /* 移动端高度缩小 */
-  }
-}
+
 
 .fixed-illustration {
     position: fixed; /* 1. 核心属性：使元素相对于浏览器窗口固定 */
@@ -1486,9 +1420,7 @@ h1 {
     color: var(--text-main);
     letter-spacing: 1px;
 }
-.color-mint { background: var(--bg-mint); }
-.color-orange { background: var(--accent-orange); opacity: 0.8; }
-.color-lemon { background: var(--accent-lemon); }
+
 
 /* --- 滚动容器：核心逻辑 --- */
 .photo-scroll-wrapper {
@@ -1580,17 +1512,7 @@ h1 {
     letter-spacing: -0.5px;
 }
 
-/* 响应式：如果屏幕太窄，自动变成 2列 或 3列 */
-@media (max-width: 1000px) {
-    .photo-grid-2x5 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (max-width: 600px) {
-    .photo-grid-2x5 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+
 
 /* --- 1. 外部大框容器 --- */
 .sticker-album-container {
@@ -1682,10 +1604,6 @@ h1 {
     transition: all 0.3s var(--ease-elastic);
 }
 
-/* 占位色块 */
-.color-mint { background: var(--bg-mint); }
-.color-orange { background: var(--accent-orange); }
-.color-lemon { background: var(--accent-lemon); }
 
 .sticker-img {
     width: 100%;
@@ -1704,14 +1622,6 @@ h1 {
     box-shadow: 8px 8px 0px var(--accent-orange);
     /* 如果你想在 Hover 时加边框可以取消下面注释 */
     /* border: 2px solid var(--text-main); */
-}
-
-/* 响应式调整：在小屏幕上自动变成 4列x4行 */
-@media (max-width: 1000px) {
-    .sticker-grid-2x8 {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 120px);
-    }
 }
 
 
@@ -1773,4 +1683,232 @@ model-viewer {
     width: 100%;
     height: 100%;
     --poster-color: transparent;
+}
+
+
+
+
+
+
+/* =========================
+   Responsive System
+========================= */
+
+/* ---------- Tablet (1024px) ---------- */
+@media (max-width: 1024px) {
+
+    /* Layout */
+    .page-section,
+    .directory-section,
+    .photography-section,
+    .resume-section {
+        padding: 50px 40px;
+    }
+
+    /* Grid */
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .complex-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bio-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Hero */
+    .hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .hero-photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Photo horizontal scroll */
+    .photo-grid-horizontal {
+        grid-auto-columns: 420px;
+    }
+
+    /* Illustration 控制 */
+    .fixed-illustration {
+        right: 20px;
+        bottom: 20px;
+        width: 180px;
+    }
+
+    .side-illustrations-container {
+        left: 10px;
+    }
+}
+
+
+/* ---------- Mobile (768px) ---------- */
+@media (max-width: 768px) {
+
+    /* Layout */
+    .page-section,
+    .directory-section,
+    .photography-section,
+    .resume-section {
+        padding: 40px 20px;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    /* Grid 全部单列 */
+    .card-container,
+    .complex-grid,
+    .hero-photos-grid,
+    .bio-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hero */
+    .hero-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Resume */
+    .resume-card {
+        padding: 16px;
+    }
+
+    /* Sticker / video */
+    .sticker-video,
+    .sticker-video-alt {
+        border-radius: 16px;
+    }
+
+    /* Photo scroll */
+    .photo-grid-horizontal {
+        grid-auto-columns: 280px;
+        gap: 16px;
+    }
+
+    /* 装饰背景：保留，但淡化 */
+    .illustration-bg {
+        opacity: 0.25;
+        overflow: hidden;
+    }
+
+    .illustration-bg img {
+        transform: scale(0.75);
+        animation-duration: 6s;
+    }
+
+    /* 右下插画：保留，但缩小、不挡点击 */
+    .fixed-illustration {
+        right: 8px;
+        bottom: 8px;
+        max-width: 72px;
+        opacity: 0.65;
+        z-index: 20;
+        pointer-events: none;
+    }
+
+    /* 右侧文件夹标签：改小，弱化 */
+    .folder-tabs {
+        right: 0;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        gap: 4px;
+        z-index: 30;
+    }
+
+    .tab-item {
+        font-size: 0.72rem;
+        padding: 8px 12px 8px 10px;
+        margin-bottom: 4px;
+        transform: translateX(8px);
+        opacity: 0.85;
+    }
+
+    .tab-item:hover {
+        transform: translateX(8px);
+        padding-left: 10px;
+    }
+
+    /* 侧边装饰：缩小并禁止点击 */
+    .side-illustrations-container {
+        transform: scale(0.7);
+        transform-origin: left center;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    /* 视频贴纸：缩小 */
+    .mini-play-sticker {
+        width: 38px;
+        height: 38px;
+        bottom: 12px;
+        right: 12px;
+        border-radius: 12px;
+        font-size: 1rem;
+    }
+
+
+
+}
+
+
+/* ---------- Small Mobile (480px) ---------- */
+@media (max-width: 480px) {
+
+    /* Typography */
+    h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    /* Button */
+    .btn,
+    .resume-button {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    /* Cards */
+    .card,
+    .resume-card,
+    .project-card {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    /* Photo */
+    .photo-grid-horizontal {
+        grid-auto-columns: 220px;
+    }
+
+    /* Sticker */
+    .mini-play-sticker {
+        width: 40px;
+        height: 40px;
+    }
 }
