@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sketches</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/sketchui.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+    <meta name="color-scheme" content="light">
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div id="nav-sidebar"></div>
+<section class="photography-section">
+    <header class="project-header" >
+        <h1>Some <span class="highlight" href="">Sketches</span></h1>
+        <p class="intro-text"><i>Random sketches from past works</i></p>
+    </header>
+
+    
+    <div class="photo-scroll-wrapper">
+        <div class="photo-grid-horizontal">
+            <div class="thumb-card" style="--delay: 0.3s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/ibissketch1.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.35s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/ibissketch2.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.4s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/birdsketch02.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.45s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/birdsketch04.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.5s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/birdsketch05.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.55s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/birdsketch06.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.6s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/birdsketch03.png"></div></div>
+            </div>
+            <div class="thumb-card" style="--delay: 0.65s;">
+                <div class="thumb-frame"><div class="placeholder-img"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/birdsketch01.png"></div></div>
+            </div>
+            
+        </div>
+    </div>
+
+
+<footer class="footer">
+    <span>© Xinru(Robin) Shi</span>
+        <img src="./assets/robin1.png" alt="icon" class="footer-icon">
+    <span>and Pink Robin Studio</span>
+        <img src="./assets/pinkrobin.png" alt="icon" class="footer-icon">
+</footer>
+
+<script src="nav.js"></script>
+</body>
+
+<script>
+    fetch('nav-other.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>

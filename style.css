@@ -1,4 +1,7 @@
 /* --- 全局变量 --- */
+
+
+
 :root {
     /* 色彩 */
     --bg-mint: #eef7f2;
@@ -31,6 +34,12 @@ body, html {
     overflow-x: hidden;
     overflow-y: auto;
     height: auto;    
+ 
+    
+
+
+
+
 }
 
 
@@ -864,17 +873,26 @@ h1 {
     box-shadow: 8px 8px 0px rgba(0,0,0,0.05);
 
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 稍微加快动画，使其更清爽 */
+    transform: translateY(40px);
+    animation: cardEntrance 0.8s var(--ease-elastic) forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
 }
 
 /* 大型卡片保持 span 2 */
-.work-item.large { grid-column: span 2; }
+.work-item.large { grid-column: span 2;
+    transform: translateY(40px);
+    animation: cardEntrance 0.8s var(--ease-elastic) forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+}
 
 /* 悬停效果：增加点击感 */
 .work-item:hover { 
     transform: translate(-2px, -2px); /* 向上向左微移 */
     box-shadow: 10px 10px 0px var(--accent-orange); /* 投影变大 */
 }
+
 
 /* --- 2. 图片占位符 (Work Img Placeholder) --- */
 .work-img-placeholder {
@@ -1010,12 +1028,7 @@ h1 {
     margin: 0 auto;
 }
 
-.split-layout {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    margin-top: 20px;
-}
+
 
 .rounded-img {
     width: 100%;
@@ -1044,6 +1057,7 @@ h1 {
     gap: 36px;
     align-items: start;
     margin: 0 auto;
+    width: 100%;
 }
 
 
@@ -1127,7 +1141,7 @@ h1 {
   /* 1. 尺寸与比例控制 */
   width: 100%;
   aspect-ratio: 4/ 1; /* 锁定 4K 窄长比例，防止布局跳动 */
-  border-radius: 40px;
+  border-radius: 20px;
   
   /* 2. 背景图核心设置 */
   background-repeat: no-repeat;
@@ -1144,7 +1158,7 @@ h1 {
   overflow: hidden;
   position: relative;
 
-  margin-top:16px ;
+  margin:20px ;
   
 }
 .banner-box img {
@@ -1183,7 +1197,7 @@ h1 {
     position: relative;
     cursor: pointer;
     border: 2px solid var(--text-main);
-    border-radius: 40px;
+    border-radius: 20px;
     overflow: hidden;
     background: var(--container-white);
     box-shadow: 12px 12px 0px rgba(0,0,0,0.05);
@@ -1484,32 +1498,23 @@ h1 {
     padding: 60px 20px; /* 留足高度给 Hover 的卡片弹跳 */
     /* 隐藏丑陋的默认滚动条，使用自定义样式 */
     scrollbar-width: thin;
-    scrollbar-color: var(--text-main) transparent;
+    scrollbar-color: var(--text-muted) transparent;
 }
 
-/* 自定义滚动条 (Chrome/Edge/Safari) */
-.photo-scroll-wrapper::-webkit-scrollbar { height: 8px; }
-.photo-scroll-wrapper::-webkit-scrollbar-track { 
-    background: transparent; 
-    border: 2px solid var(--text-main); 
-    border-radius: 10px; 
-}
-.photo-scroll-wrapper::-webkit-scrollbar-thumb { 
-    background: var(--bg-mint); 
-    border: 2px solid var(--text-main); 
-    border-radius: 10px; 
-}
+
 
 /* --- 网格布局控制 --- */
 .photo-grid-horizontal {
     display: grid;
-    /* 固定为两行，高度根据内容自动 */
     grid-template-rows: repeat(2, auto);
     /* 每一列固定宽度，向右自动增加 */
     grid-auto-flow: column; 
-    grid-auto-columns: 320px; /* 因为是横版照片，给 320px 宽度比较大气 */
+    grid-auto-columns: 640px; 
     gap: 30px;
+
 }
+
+
 
 /* --- 单个缩略图卡片 --- */
 .thumb-card {
@@ -1537,7 +1542,6 @@ h1 {
 
 .thumb-frame {
     width: 100%;
-    aspect-ratio: 1 / 1; /* 强制图片为正方形，看起来更整齐 */
     overflow: hidden;
     border: 2px solid var(--text-main);
     border-radius: 8px;
@@ -1632,7 +1636,7 @@ h1 {
     grid-template-rows: repeat(2, 120px);
     gap: 12px;
     justify-items: center;
-    align-items: center;
+    align-items: start;
 }
 
 /* --- 3. 贴纸项目 (图片本身没有边框) --- */
@@ -1640,6 +1644,17 @@ h1 {
     width: 90px;
     height: 90px;
     cursor: pointer;
+    transition: all 0.4s var(--ease-elastic);
+
+    /* 2. ✅ 添加：背景图片设置 (核心修改) */
+    background-size: cover;      /* 确保图片完全填满 90x90 的区域，可能会裁切 */
+    background-position: center; /* 确保图片居中显示 */
+    background-repeat: no-repeat;
+    
+    /* 3. ✅ 添加：视觉兜底 (可选但推荐) */
+    border-radius: 8px;           
+
+    /* 4. 保留：原本的过渡和动画 */
     transition: all 0.4s var(--ease-elastic);
     
     /* 入场动画：一个个弹出来 */
@@ -1658,8 +1673,7 @@ h1 {
     height: 100%;
     background: #f0f0f0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+ 
     font-weight: 900;
     color: var(--text-main);
     font-size: 1rem;
@@ -1672,6 +1686,13 @@ h1 {
 .color-mint { background: var(--bg-mint); }
 .color-orange { background: var(--accent-orange); }
 .color-lemon { background: var(--accent-lemon); }
+
+.sticker-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+}
 
 /* --- 4. Hover 动效：赋予插画灵魂 --- */
 .sticker-item:hover {
