@@ -1622,13 +1622,9 @@ h1 {
 .sticker-content {
     width: 100%;
     height: 100%;
-    background: #f0f0f0;
     display: flex;
  
-    font-weight: 900;
-    color: var(--text-main);
-    font-size: 1rem;
-    /* 关键：平时没有边框，显得轻盈 */
+
     border: none; 
     transition: all 0.3s var(--ease-elastic);
 }
