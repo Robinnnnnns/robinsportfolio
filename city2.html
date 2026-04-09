@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City2Surf</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/uxui.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+    <meta name="color-scheme" content="light">
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div id="nav-sidebar"></div>
+
+
+
+
+
+    <nav class="folder-tabs">
+    <a href="#section1" class="tab-item">Product</a>
+    <a href="#section2" class="tab-item">Demo</a>
+    <a href="#section3" class="tab-item">User Research</a>
+    <a href="#section4" class="tab-item">Wireflow</a>
+    <a href="#section5" class="tab-item">Hi-Fi</a>
+</nav>
+<body>
+<main class="page-section">
+        <header class="project-header" id="overview">
+        <p class="subtitle">For IDEA9105 Interface Design</p>
+        <h1>Empowering City2Surf <span class="highlight" href="">Volunteers</span></h1>
+        <p class="intro-text"><i>Wearable Interface Design for Enhancing Volunteer User Experience </i><a href="robinnnnnns.github.io/how-to-become-linnnnnnk/" style="color: var(--text-main);">→</a></p>
+    </header>
+
+    <!-- 01 -->
+    <section class="page-section" id="section1">
+
+        <div class="mockup-frame">
+            <img src="assets/mockup-hero.jpg" alt="Final Product Mockup">
+        </div>
+
+        <div class="mockup-description">
+            <h3>Designed for Daily Balance</h3>
+            <p>A minimalist wearable focused on mental wellness and haptic feedback.</p>
+        </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section display-case product-video" id="section2">
+        <div class="section-tag">02. MOTION DEMO</div>
+
+        <div class="sticker-video">
+            <video controls>
+                <source src="assets/promo-video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- 03 -->
+<section class="cs-section display-case research-grid" id="section3">
+    <div class="section-tag">03. USER INSIGHTS</div>
+
+    <div class="research-cards bio-cards">
+
+        <!-- 原有卡片 -->
+        <div class="info-card resume-card">
+            <h4>Netnography</h4>
+            <p>Observed 200+ online community discussions regarding wearable tech fatigue.</p>
+        </div>
+
+        <div class="info-card resume-card theme-mint">
+            <h4>User Persona</h4>
+            <div class="persona-avatar"></div>
+            <p><strong>"The Mindful Minimalist"</strong>: Seeks tech that aids focus, not distraction.</p>
+        </div>
+
+    </div>
+
+    <!-- ✅ 新增 Insights 区 -->
+    <div class="insights-block">
+        <h4 class="insights-title">Key Insights</h4>
+
+        <ul class="insights-list">
+            <li>Users feel overwhelmed by constant notifications and seek calmer interactions</li>
+            <li>Minimalist design is preferred when it supports focus rather than productivity pressure</li>
+            <li>Haptic feedback is perceived as more “gentle” and less intrusive than visual alerts</li>
+        </ul>
+    </div>
+</section>
+
+    <!-- 04 -->
+    <section class="cs-section display-case flow-analysis" id="section4">
+        <div class="section-tag">04. LOGIC & FLOW</div>
+
+        <div class=" complex-grid">
+            <div class="competitor-table resume-card">
+                <div class="table-row table-head">
+                    <span>Feature</span>
+                    <span>Aura</span>
+                    <span>Comp.X</span>
+                </div>
+                <div class="table-row">
+                    <span>Haptic</span>
+                    <span>Yes</span>
+                    <span>No</span>
+                </div>
+            </div>
+
+            <div class="wireflow-img display-case">
+                <img src="assets/wireflow-diagram.png" alt="User Wireflow">
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="cs-section display-case hifi-gallery" id="section5">
+        <div class="section-tag">05. HI-FI SCREENS</div>
+
+        <div class="card-container">
+            <div class="screen-card">
+                <img src="assets/screen1.png" alt="Screen 1">
+            </div>
+            <div class="screen-card">
+                <img src="assets/screen2.png" alt="Screen 2">
+            </div>
+            <div class="screen-card">
+                <img src="assets/screen3.png" alt="Screen 3">
+            </div>
+            <div class="screen-card">
+                <img src="assets/screen4.png" alt="Screen 4">
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+<footer class="footer">
+    <span>© Xinru(Robin) Shi</span>
+        <img src="./assets/robin1.png" alt="icon" class="footer-icon">
+    <span>and Pink Robin Studio</span>
+        <img src="./assets/pinkrobin.png" alt="icon" class="footer-icon">
+</footer>
+
+<script src="nav.js"></script>
+</body>
+
+<script>
+    fetch('nav-ux.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>

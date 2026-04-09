@@ -7,8 +7,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. 定义创建宠物的统一函数 (保持你的原始样式设置) ---
     function initPet(imgSrc) {
-        if (currentPet) currentPet.remove();
-        
+         if (currentPet) currentPet.remove(); 
+         if (imgSrc.includes('blankbird.png')) return; 
+
         currentPet = document.createElement('img');
         currentPet.src = imgSrc; 
         currentPet.className = 'mouse-pet';

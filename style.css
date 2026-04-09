@@ -1660,7 +1660,7 @@ h1 {
 .display-case, .video-showcase {
     background: var(--container-white);
     border: 2px solid var(--text-main);
-    border-radius: 30px;
+    border-radius: 20px;
     margin-bottom: 80px;
     position: relative;
     padding: 30px;
@@ -1711,7 +1711,181 @@ model-viewer {
 }
 
 
+/* =========================
+   Case Study Page
+========================= */
 
+
+
+.cs-section {
+    margin-bottom: 56px;
+}
+
+.page-title {
+    margin-bottom: 40px;
+}
+
+.mockup-frame {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.mockup-frame img,
+.wireflow-img img,
+.screen-card img,
+.video-container video {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+
+
+
+.product-video .video-container {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+.info-card {
+    height: 100%;
+}
+
+.theme-mint {
+    background: var(--bg-mint);
+}
+
+.persona-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin: 12px 0 16px;
+    background: var(--accent-orange);
+    border: 2px solid var(--text-main);
+}
+
+
+
+.competitor-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 2px solid var(--text-main);
+    border-radius: 14px;
+    background: var(--container-white);
+}
+
+.table-head {
+    font-weight: 700;
+    background: var(--accent-lemon);
+}
+
+.wireflow-img {
+    padding: 14px;
+}
+
+
+
+.screen-card {
+    border: 2px solid var(--text-main);
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--container-white);
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.06);
+}
+
+/* =========================
+   Insights Block
+========================= */
+
+.insights-block {
+    margin-top: 28px;
+    padding: 20px 22px;
+    border: 2px dashed var(--text-main);
+    border-radius: 18px;
+    background: var(--container-white);
+}
+
+.insights-title {
+    margin-bottom: 14px;
+}
+
+.insights-list {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.insights-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+/* =========================
+   Case Study Responsive
+========================= */
+
+@media (max-width: 1024px) {
+    .case-study-container {
+        max-width: 100%;
+    }
+
+  
+
+
+}
+
+@media (max-width: 768px) {
+    .cs-section {
+        margin-bottom: 40px;
+    }
+
+    .mockup-frame {
+        border-radius: 18px;
+    }
+
+    .mockup-frame img,
+    .wireflow-img img,
+    .screen-card img,
+    .video-container video {
+        border-radius: 16px;
+    }
+
+   
+
+
+    .table-row {
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        margin-bottom: 28px;
+    }
+
+  
+
+    .table-row {
+        gap: 8px;
+        padding: 10px 12px;
+        font-size: 0.82rem;
+    }
+
+    .persona-avatar {
+        width: 56px;
+        height: 56px;
+    }
+}
 
 
 
