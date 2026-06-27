@@ -102,7 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const heart = document.createElement('div');
         heart.className = 'heart-particle';
         // 使用 Unicode 爱心符号 ♥
-        heart.innerHTML = '♥'; 
+        heart.innerHTML = '♡'; 
         
         // 生成随机属性使爱心各不相同
         const size = Math.random() * 20 + 30; // 10-30px
