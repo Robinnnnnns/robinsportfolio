@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game/Wave</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/wave/tile.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+    <meta name="color-scheme" content="light">
+
+</head>
+
+
+<body>
+
+  
+<div id="nav-placeholder"></div>
+<div id="nav-sidebar"></div>
+
+<canvas id="wave-bg"></canvas>
+
+<main class="content-wrapper">
+    <header class="project-header" id="overview">
+        <p class="subtitle">For Ludum Dare 59 "Signal"</p>
+        <h1><span class="highlight" href="">Wave</span></h1>
+        <p class="intro-text"><i>An interactive mini-game inspired by mathematical functions and signal waves </i><a href="https://robinnnnnns.github.io/wave/" style="color: var(--text-main);">→</a></p>
+    </header>
+
+    <section class="work-grid" id="game">
+        <div class="work-item large" style="--delay: 0.1s;">
+            <div class="work-img-placeholder"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/wave1.png"></div>
+            <div class="work-info"><h3>Gameplay</h3><p>Transforming abstract concepts such as sine waves, harmonic superposition, and Fourier analysis into playable mechanics. </p></div>
+        </div>
+        <div class="work-item" style="--delay: 0.2s;">
+            <div class="work-img-placeholder"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/wave2.png"></div>
+            <div class="work-info"><h3>Design Philosophy</h3><p>Inspired by the experience of adjusting oscilloscope parameters during physics experiments. </p></div>
+        </div>
+        <div class="work-item" style="--delay: 0.3s;">
+            <div class="work-img-placeholder"><img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/wave3.png"></div>
+            <div class="work-info"><h3>Team</h3><p>Robin: Programming, Level Design, UI Design</p><p>Suetex: Inspiration and Level Design
+</p></div>
+        </div>
+    </section>
+</main>
+
+
+<footer class="footer">
+    <span>© Xinru(Robin) Shi</span>
+        <img src="./assets/robin1.png" alt="icon" class="footer-icon">
+    <span>and Pink Robin Studio</span>
+        <img src="./assets/pinkrobin.png" alt="icon" class="footer-icon">
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
+
+<script>
+    fetch('nav-game.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-sidebar').innerHTML = data;
+  });
+</script>

@@ -259,3 +259,56 @@ function initMangaAudioPlayers() {
         };
     });
 }
+
+
+
+
+const canvas = document.getElementById("wave-bg");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+
+window.addEventListener("resize", resize);
+
+let time = 0;
+
+function draw(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.beginPath();
+
+    const A = 100;              // 振幅
+    const wavelength = 300;    // 波长
+    const speed = 5;           // 波移动速度
+    const offset = canvas.height*0.6;
+
+    for(let x=0;x<=canvas.width;x++){
+
+        const y =
+            offset +
+            A*Math.sin(
+                x/wavelength*2*Math.PI
+                + time
+            );
+
+        if(x===0)
+            ctx.moveTo(x,y);
+        else
+            ctx.lineTo(x,y);
+    }
+
+    ctx.strokeStyle= "#ffd8b0";
+    ctx.lineWidth=3;
+    ctx.stroke();
+
+    time += 0.02;
+
+    requestAnimationFrame(draw);
+}
+
+draw();

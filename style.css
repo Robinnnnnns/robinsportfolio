@@ -1833,6 +1833,30 @@ model-viewer {
    Case Study Responsive
 ========================= */
 
+
+#wave-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 1024px) {
     .case-study-container {
         max-width: 100%;
