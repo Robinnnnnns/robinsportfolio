@@ -201,6 +201,11 @@ body, html {
     z-index: 10;
     pointer-events: auto;
     transition: all 0.4s var(--ease-elastic);
+
+    opacity: 0;
+    transform: scale(0.9);
+    animation: thumbPop 0.6s var(--ease-elastic) forwards;
+    animation-delay: var(--delay);
 }
 
 /* 5. 悬停效果：向上浮起，并让阴影加深/变大 */
@@ -284,7 +289,7 @@ h1 {
     /* 保留你的原始字体和颜色变量 */
     font-family: var(--font-ui, sans-serif);
     background-color: var(--accent-orange, #ff8c00); /* 加上兜底颜色防止消失 */
-    color: var(--text-main, #ffffff);
+    color: var(--text-main, --container-white);
     
     /* 关键：必须是 inline-block 或 block */
     display: inline-block;
@@ -471,12 +476,15 @@ h1 {
 .hero-photo-area {
     display: flex;
     justify-content: flex-end;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: thumbPop 0.6s var(--ease-elastic) forwards;
+    animation-delay: var(--delay);
 }
 
 .photo-wrapper {
     position: relative;
-    width: 90%;
-    max-height: 500px;
+    width: 100%;
     aspect-ratio: 4 / 5;
     transition: transform 0.4s var(--ease-elastic);
 }
@@ -524,7 +532,7 @@ h1 {
 
 /* 5. 可选装饰：给照片角落加一个“贴纸”感的小标签 */
 .photo-wrapper::after {
-    content: 'Robin';
+    content: 'Robin (right)';
     position: absolute;
     bottom: 20px;
     right: -10px;
@@ -728,8 +736,9 @@ h1 {
 
 .bubble {
     position: absolute;
-    background-color: #ffffff;
+    background-color: var(--container-white);
     border-radius: 50%;
+    border: 2px solid var(--text-muted);
     opacity: 0.6;
     box-shadow: 0 0 5px #d5eadd; /* 增加柠檬黄的柔光 */
     pointer-events: auto; /* 允许泡泡接收点击 */
@@ -751,61 +760,84 @@ h1 {
     box-shadow: 0 0 5px rgba(255, 216, 176, 0.6); /* 增加柠檬黄的柔光 */
 }
 
-/* --- 模拟随机感：为每个泡泡设置不同的尺寸、位置和延迟 --- */
-/* Bubble 1: Top-Left, now much larger */
-.b1 { 
-    width: 140px; 
-    height: 140px; 
-    left: 30%; /* Near the left edge */
-    top: 15%; 
-    animation-delay: -2s; 
+/* Bubble 1：左上偏中，大泡泡 */
+.b1 {
+    width: 125px;
+    height: 125px;
+    left: 20%;
+    top: 17%;
+    animation-delay: -2s;
+    animation-duration: 18s;
 }
 
-/* Bubble 2: Largest, slightly lower, more to the center-left */
-.b2 { 
-    width: 100px; 
-    height: 100px; 
-    left: 20%; /* Shifted towards center-left */
-    top: 10%; 
-    animation-delay: -5s; 
-    animation-duration: 18s; /* Slower because it's massive */
+/* Bubble 2：靠左上，中泡泡 */
+.b2 {
+    width: 80px;
+    height: 80px;
+    left: 5%;
+    top: 23%;
+    animation-delay: -7s;
+    animation-duration: 21s;
 }
 
-/* Bubble 3: Smaller, highest up, near the edge */
-.b3 { 
-    width: 80px; 
-    height: 80px; 
-    left: 10%; /* Very close to left edge */
-    top: 10%; 
-    animation-delay: -1s; 
+/* Bubble 3：偏右靠上，小泡泡 */
+.b3 {
+    width: 50px;
+    height: 50px;
+    left: 31%;
+    top: 12%;
+    animation-delay: -4s;
+    animation-duration: 15s;
 }
 
-/* Bubble 4: Mid-sized, lower down, slightly more to the center */
-.b4 { 
-    width: 170px; 
-    height: 170px; 
-    left: 5%; /* Further towards the center-left */
-    top: 25%; 
-    animation-delay: -8s; 
-    animation-duration: 20s; 
+/* Bubble 4：左侧中上，最大泡泡 */
+.b4 {
+    width: 150px;
+    height: 150px;
+    left: 2%;
+    top: 40%;
+    animation-delay: -10s;
+    animation-duration: 23s;
 }
 
-/* Bubble 5: Small, lowest one on the left */
-.b5 { 
-    width: 100px; 
-    height: 100px; 
-    left: 5%; /* Concentrated on far-left */
-    top: 50%; 
-    animation-delay: -3s; 
+/* Bubble 5：左侧偏下，中小泡泡 */
+.b5 {
+    width: 70px;
+    height: 70px;
+    left: 12%;
+    top: 50%;
+    animation-delay: -5s;
+    animation-duration: 17s;
 }
 
-/* Bubble 6: Mid-sized, in the middle of the left column */
-.b6 { 
-    width: 110px; 
-    height: 110px; 
-    left: 10%; /* Overlapping slightly with others for a natural feel */
-    top: 30%; 
-    animation-delay: -12s; 
+/* Bubble 6：左下区域，中泡泡 */
+.b6 {
+    width: 95px;
+    height: 95px;
+    left: 12%;
+    top: 63%;
+    animation-delay: -12s;
+    animation-duration: 20s;
+}
+
+/* Bubble 7：靠近左边缘，小泡泡 */
+.b7 {
+    width: 40px;
+    height: 40px;
+    left: 1%;
+    top: 69%;
+    animation-delay: -3s;
+    animation-duration: 16s;
+}
+
+/* Bubble 8：左下填充，小中泡泡 */
+.b8 {
+    width: 60px;
+    height: 60px;
+    left: 5%;
+    top: 65%;
+    animation-delay: -9s;
+    animation-duration: 19s;
 }
 /* 飘动动画轨迹 */
 @keyframes float-bubble {
@@ -824,7 +856,7 @@ h1 {
     margin: 0 auto;
 }
 
-.project-header { text-align: center; margin-bottom: 80px; }
+.project-header { text-align: center; margin-top: 1rem; margin-bottom: 4rem; }
 
 .work-grid {
     display: grid;
@@ -845,6 +877,8 @@ h1 {
 
     overflow: hidden;
     transition: transform 0.2s ease; /* 增加平滑感 */
+    animation: stickerpop 0.6s var(--ease-elastic, ease-out) both;
+    animation-delay: var(--delay, 0s);
 
 }
 
@@ -857,7 +891,22 @@ h1 {
     transform: translate(-2px, -2px); /* 向上向左微移 */
     box-shadow: 10px 10px 0px var(--accent-orange); /* 投影变大 */
 }
+@keyframes stickerpop {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotate(-5deg);
+    }
 
+    70% {
+        opacity: 1;
+        transform: scale(1.01) rotate(2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
 
 /* --- 2. 图片占位符 (Work Img Placeholder) --- */
 .work-img-placeholder {
@@ -1163,6 +1212,11 @@ h1 {
     display: flex; /* 这里用 flex 是为了让视频在格子内居中 */
     justify-content: center;
     align-items: center;
+
+    opacity: 0;
+    transform: scale(0.9);
+    animation: thumbPop 0.6s var(--ease-elastic) forwards;
+    animation-delay: var(--delay);
 }
 
 /* 视频容器 */
@@ -1173,7 +1227,7 @@ h1 {
     border-radius: 20px;
     overflow: hidden;
     background: var(--container-white);
-    box-shadow: 12px 12px 0px rgba(0,0,0,0.05);
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.05);
 }
 
 .video-content {
@@ -1248,7 +1302,7 @@ h1 {
 
 /* --- 目录页容器 --- */
 .directory-section {
-    padding: 100px 40px;
+    padding: 70px 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1383,7 +1437,7 @@ h1 {
 
 /* 核心：照片相框样式 */
 .photo-frame-large {
-    background: #fff;
+    background: var(--container-white);
     border: 2px solid var(--text-main); /* 粗黑边 */
     border-radius: 20px;
     padding: 15px;
@@ -1422,7 +1476,7 @@ h1 {
 .frame-label {
     position: absolute;
     background: var(--text-main);
-    color: #fff;
+    color: var(--container-white);
     font-family: var(--font-ui);
     font-weight: 800;
     font-size: 12px;
@@ -1456,7 +1510,7 @@ h1 {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 60px 20px; /* 留足高度给 Hover 的卡片弹跳 */
+    padding: 20px 20px; /* 留足高度给 Hover 的卡片弹跳 */
     /* 隐藏丑陋的默认滚动条，使用自定义样式 */
     scrollbar-width: thin;
     scrollbar-color: var(--text-muted) transparent;
@@ -1479,7 +1533,7 @@ h1 {
 
 /* --- 单个缩略图卡片 --- */
 .thumb-card {
-    background: #fff;
+    background: var(--container-white);
     border: 2px solid var(--text-main);
     border-radius: 15px;
     padding: 10px;
@@ -1611,13 +1665,12 @@ h1 {
     /* 入场动画：一个个弹出来 */
     opacity: 0;
     transform: scale(0.5);
-    animation: stickerPop 0.6s var(--ease-elastic) forwards;
+    animation: stickerpop 0.6s var(--ease-elastic) forwards;
     animation-delay: var(--delay);
 }
 
-@keyframes stickerPop {
-    to { opacity: 1; transform: scale(1); }
-}
+
+
 
 .sticker-content {
     width: 100%;
@@ -1717,37 +1770,6 @@ model-viewer {
 
 
 
-.cs-section {
-    margin-bottom: 56px;
-}
-
-.page-title {
-    margin-bottom: 40px;
-}
-
-.mockup-frame {
-    margin-top: 20px;
-    margin-bottom: 24px;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-.mockup-frame img,
-.wireflow-img img,
-.screen-card img,
-.video-container video {
-    width: 100%;
-    display: block;
-    border-radius: 20px;
-}
-
-
-
-
-.product-video .video-container {
-    margin-top: 20px;
-    overflow: hidden;
-}
 
 
 .info-card {
@@ -1801,7 +1823,7 @@ model-viewer {
     border-radius: 20px;
     overflow: hidden;
     background: var(--container-white);
-    box-shadow: 8px 8px 0 rgba(0,0,0,0.06);
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.05);
 }
 
 /* =========================
@@ -1846,6 +1868,32 @@ model-viewer {
 }
 
 
+/* Large Mockup Display */
+.mockup-display {
+    width: 90%;
+    background: var(--container-white);
+    
+    border-radius: 20px;
+    aspect-ratio: 21/ 9;
+    overflow: hidden;
+    margin-inline: auto;
+
+    /* 与 work-item 保持一致的阴影 */
+    box-shadow: 10px 10px 0px var(--accent-orange);
+
+    /* 不添加描边动效 */
+    border: none;
+    animation: none;
+}
+
+/* 大图自适应展示 */
+.mockup-display img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
 
 
 

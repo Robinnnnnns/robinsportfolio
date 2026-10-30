@@ -19,46 +19,55 @@
 
 
     <nav class="folder-tabs">
-    <a href="#section1" class="tab-item">Product</a>
-    <a href="#section2" class="tab-item">Demo</a>
-    <a href="#section3" class="tab-item">User Research</a>
-    <a href="#section4" class="tab-item">Wireflow</a>
-    <a href="#section5" class="tab-item">Hi-Fi</a>
+    <a href="#mockup" class="tab-item">Product</a>
+    <a href="#demo" class="tab-item">Demo</a>
+    <a href="#research" class="tab-item">User Research</a>
+    <a href="#wire" class="tab-item">Wireflow</a>
+    <a href="#hifi" class="tab-item">Hi-Fi</a>
 </nav>
 <body>
-<main class="page-section">
-        <header class="project-header" id="overview">
-        <p class="subtitle">For IDEA9105 Interface Design</p>
-        <h1>Empowering City2Surf <span class="highlight" href="">Volunteers</span></h1>
-        <p class="intro-text"><i>Wearable Interface Design for Enhancing Volunteer User Experience </i><a href="robinnnnnns.github.io/how-to-become-linnnnnnk/" style="color: var(--text-main);">→</a></p>
-    </header>
+<main >
+   
 
     <!-- 01 -->
-    <section class="page-section" id="section1">
+    <section class="page-section" id="mockup">
 
-        <div class="mockup-frame">
-            <img src="assets/mockup-hero.jpg" alt="Final Product Mockup">
-        </div>
+    <header class="project-header" id="overview" style="margin-top: 2rem;">
+        <p class="subtitle">For IDEA9105 Interface Design</p>
+        <h1>Empowering City2Surf <span class="highlight" href="">Volunteers</span></h1>
+        <p class="intro-text" ><i>Wearable Interface Design for Enhancing Volunteer User Experience </i></p>
+    </header>
+      <div class="mockup-display">
+            <img src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/cover.png" alt="Product mockup">
+     </div>  
 
-        <div class="mockup-description">
-            <h3>Designed for Daily Balance</h3>
-            <p>A minimalist wearable focused on mental wellness and haptic feedback.</p>
-        </div>
     </section>
 
     <!-- 02 -->
-    <section class="cs-section display-case product-video" id="section2">
-        <div class="section-tag">02. MOTION DEMO</div>
+    <section class="page-section" id="demo">
+         <header class="project-header" id="overview" style="margin-top: 2rem;">
+        <h1>Motion Demo</h1>
+    </header>
 
-        <div class="sticker-video">
-            <video controls>
-                <source src="assets/promo-video.mp4" type="video/mp4">
-            </video>
+        <div class="video";>
+            <div class="video sticker-video" onclick="playVideo(this)">
+    <video class="video-content" preload="none" loop playsinline poster="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/vendingcover.png">
+        <source src="https://pub-a85038fa745c4d8195746e99bc07b941.r2.dev/vendingmachine.mp4" type="video/mp4">
+    </video>
+    
+    <div class="mini-play-sticker">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="black" stroke-width="2">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+    </svg>
+    </div>
+    </div>
+                
+            
         </div>
     </section>
 
     <!-- 03 -->
-<section class="cs-section display-case research-grid" id="section3">
+<section class="page-section" id="research">
     <div class="section-tag">03. USER INSIGHTS</div>
 
     <div class="research-cards bio-cards">
@@ -90,7 +99,7 @@
 </section>
 
     <!-- 04 -->
-    <section class="cs-section display-case flow-analysis" id="section4">
+    <section class="page-section" id="wire">
         <div class="section-tag">04. LOGIC & FLOW</div>
 
         <div class=" complex-grid">
@@ -114,7 +123,7 @@
     </section>
 
     <!-- 05 -->
-    <section class="cs-section display-case hifi-gallery" id="section5">
+    <section class="page-section" id="hifi">
         <div class="section-tag">05. HI-FI SCREENS</div>
 
         <div class="card-container">
